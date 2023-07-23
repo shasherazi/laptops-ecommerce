@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(15px) brightness(0.2);
+  backdrop-filter: blur(10px) brightness(0.1);
   height: 100%;
   width: 100%;
 }
