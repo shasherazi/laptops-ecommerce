@@ -1,6 +1,8 @@
+import close from '../../assets/close.png'
+
 const Header = () => (
     <header>
-      <a>Vespa</a>
+      <a href="#!" className="logo">Vespa</a>
       <nav>
         <ul>
           <li><a href="#" className="single-nav">Home</a></li>
@@ -9,6 +11,7 @@ const Header = () => (
           <li><a href="#" className="single-nav">About</a></li>
         </ul>
       </nav>
+      <img src={close} className='close' />
     </header>
   );
 
