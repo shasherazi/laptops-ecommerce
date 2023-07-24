@@ -40,8 +40,6 @@ function Signup() {
       setErrorMessage("");
     }
 
-    console.log("Name: ", name);
-    console.log("Email: ", email);
     fetch("http://localhost:3000/signup", {
       method: "POST",
       headers: {
@@ -62,7 +60,6 @@ function Signup() {
         return await Promise.reject(data.status.message);
       })
       .catch((error) => {
-
         toast.error(error);
       });
   };
