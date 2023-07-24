@@ -17,7 +17,7 @@ function Login() {
           required
           minLength={6}
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit">Log In</button>
       </form>
     </div>
   );
