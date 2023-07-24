@@ -21,6 +21,10 @@ header{
     z-index: 2;
     background-color: white;
     left: -150px;
+    transition: left 0.3s ease; 
+}
+header.active{
+    left: 0;
 }
 
 .close{

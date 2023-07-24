@@ -1,7 +1,14 @@
-import close from '../../assets/close.png'
+import PropTypes from 'prop-types';
+import close from '../../assets/close.png';
 
-const Header = () => (
-    <header>
+const Header = ({ isMenuActive, setIsMenuActive }) => {
+  const closeMenu = () => {
+    console.log('Close menu clicked');
+    setIsMenuActive(false);
+  };
+
+  return (
+    <header className={isMenuActive ? 'active' : ''}>
       <a href="#!" className="logo">Vespa</a>
       <nav>
         <ul>
@@ -11,8 +18,15 @@ const Header = () => (
           <li><a href="#" className="single-nav">About</a></li>
         </ul>
       </nav>
-      <img src={close} className='close' />
+      <img src={close} className='close' onClick={closeMenu} />
     </header>
   );
+};
 
-  export default Header;
+Header.propTypes = {
+  isMenuActive: PropTypes.bool.isRequired,
+  setIsMenuActive: PropTypes.func.isRequired,
+};
+
+
+export default Header;
