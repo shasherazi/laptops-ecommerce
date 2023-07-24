@@ -7,6 +7,7 @@
 */
 main{
     display: flex;
+    position: relative;
 }
 
 header{
@@ -102,7 +103,20 @@ header nav ul li:hover .single-nav{
     header{
         left: 0;
     }
+    .menu{
+        display: none;
+    }
+    .main{
+        display: flex;
+    }
     .close{
         display: none;
     }
+    .main-content {
+        width: calc(100vw - 150px);
+        position: absolute;
+        left: 150px;
+        padding-top: 0px;
+      }
+      
 }
