@@ -22,11 +22,8 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -41,13 +38,15 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: hsl(242, 93%, 33%);
   cursor: pointer;
   transition: border-color 0.25s;
+  color: hsl(0, 0%, 100%);
+  width: 100%;
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: hsl(237, 100%, 70%);
 }
 
 button:focus,
