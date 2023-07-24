@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setProducts } from '../redux/products/productSlice';
-import demoData from '../demo/demo.json';
+import demoData from '../demo/demo.json'; 
 
 const HomePage = () => {
   const dispatch = useDispatch();
