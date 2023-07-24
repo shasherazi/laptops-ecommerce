@@ -32,10 +32,7 @@ const HomePage = () => {
           <li key={product.id} className='product'>
             <img src={product.picture} alt={product.name}/>
             <h2>{product.name}</h2>
-            <p>Price: ${product.price}</p>
-            <p>CPU: {product.cpu}</p>
-            <p>Memory: {product.memory}</p>
-            <p>Storage: {product.storage}</p>
+            <button>View Details</button>
           </li>
         ))}
       </ul>
