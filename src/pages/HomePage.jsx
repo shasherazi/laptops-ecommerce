@@ -25,13 +25,13 @@ const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className='pro-list'>
       <h1>Product List</h1>
-      <ul>
+      <ul className='products'>
         {products.map((product) => (
-          <li key={product.id}>
-            <img src={product.picture} alt={product.name} style={{ width: '100px', height: '100px' }} />
-            <span>{product.name}</span>
+          <li key={product.id} className='product'>
+            <img src={product.picture} alt={product.name}/>
+            <h2>{product.name}</h2>
             <p>Price: ${product.price}</p>
             <p>CPU: {product.cpu}</p>
             <p>Memory: {product.memory}</p>
