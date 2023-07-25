@@ -1,8 +1,17 @@
 import "./App.css";
-import HomePage from "./pages/HomePage";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import ProductDetailsPage from './pages/ProductDetailsPage';
 
-function App() {
-  return <HomePage />;
-}
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<HomePage />} />
+        <Route path="/productdetail/:productId" element={<ProductDetailsPage />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;
