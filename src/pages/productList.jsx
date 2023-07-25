@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import './productList.css';
 
 export default function HomePage(){
   const dispatch = useDispatch();
@@ -60,10 +61,17 @@ export default function HomePage(){
       <h1>Product List</h1>
       <Slider {...sliderSettings}>
         {products.map((product) => (
-          <div key={product.id} role='product' onClick={() => navigate(`productdetail/${product.id}`)}>
-              <img src={product.picture} alt={product.name} style={{ width: '100px', height: '100px' }} />
-              <h3>{product.name}</h3>
-              <p>Price: ${product.price}</p>
+          <div className='pro-list' key={product.id} role='product' onClick={() => navigate(`productdetail/${product.id}`)}>
+            <div className='pro-list-reserve'>
+              <div className='pro-list-img'>
+                <img src={product.picture} alt={product.name} style={{ width: '250px', margin: '0 auto' }} />
+              </div>
+              <div className='pro-list-info'>
+                <h3>{product.name}</h3>
+                <p>Price: ${product.price}</p>
+              </div>
+            </div>
+            <div className='pro-list-cricle' />
           </div>
         ))}
       </Slider>
