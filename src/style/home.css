@@ -57,6 +57,7 @@ header.active {
   font-size: 30px;
   transform: rotate(-10deg);
   margin-top: 50px;
+  text-decoration: underline !important;
 }
 
 header nav {
