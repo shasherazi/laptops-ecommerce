@@ -90,6 +90,7 @@ header nav ul li {
   color: #515151;
   transition: 0.3s;
   padding-left: 5px;
+  text-decoration: none !important;
 }
 
 header nav ul li:hover {
