@@ -1,31 +1,20 @@
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home";
-import Header from './components/header/Header';
-import './style/home.css'
-import menu from './assets/menu.png'
+import Splash from "./pages/Splash";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import Main from "./pages/MainContent";
 
 function App() {
-  const [isMenuActive, setIsMenuActive] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuActive(!isMenuActive);
-  };
   return (
-    <main>
-      <Header isMenuActive={isMenuActive} setIsMenuActive={setIsMenuActive} />
-      <section className='main-content'>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-        <img
-          src={menu}
-          className='menu'
-          onClick={toggleMenu}
-        />
-      </section>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Splash />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Main />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
