@@ -14,8 +14,8 @@ const Header = ({ isMenuActive, setIsMenuActive }) => {
       <a href="/" className="logo">Laptops</a>
       <nav>
         <ul>
-          <Link to='/' className="single-nav">Home</Link>
-          <Link to='#' className="single-nav">Reservation</Link>
+          <Link to='/' className="single-nav"><li>Home</li></Link>
+          <Link to='#' className="single-nav"><li>Reservation</li></Link>
           <Link to="/login" className={styles.login}>
             login
           </Link>
