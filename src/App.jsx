@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { useState } from 'react';
 import "./App.css";
-import Splash from "./pages/Splash";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Header from "./components/header/Header";
@@ -22,11 +21,10 @@ function App() {
         <Header isMenuActive={isMenuActive} setIsMenuActive={setIsMenuActive} />
         <section className='main-content'>
           <Routes>
-            <Route path="/" element={<Splash />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route exact path="/Homepage" element={<HomePage />} />
-            <Route path="/Homepage/productdetail/:productId" element={<ProductDetailsPage />} />
+            <Route exact path="/" element={<HomePage />} />
+            <Route path="/productdetail/:productId" element={<ProductDetailsPage />} />
           </Routes>
           <img
             src={menu}
