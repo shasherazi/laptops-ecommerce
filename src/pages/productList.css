@@ -23,6 +23,13 @@
   box-shadow: 0 0 5px #ccc;
 }
 
+.slick-prev {
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
 .slick-arrow:hover,
 .slick-arrow:focus {
   background-color: hsl(76, 57%, 47%);

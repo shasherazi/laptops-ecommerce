@@ -40,7 +40,7 @@ export default function HomePage(){
   
   function getSlidesToShow() {
     const windowWidth = window.innerWidth;
-    if (windowWidth <= 980 && windowWidth > 650) {
+    if (windowWidth <= 1400 && windowWidth > 650) {
       return 2;
     } else if (windowWidth <= 650) {
       return 1;
