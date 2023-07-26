@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import Header from "./components/header/Header";
 import Home from './pages/Home'
 import menu from './assets/menu.png'
-import './style/home.css'
+import './css/home.css'
 
 function App() {
   const [isMenuActive, setIsMenuActive] = useState(false);
