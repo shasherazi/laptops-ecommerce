@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import close from '../../assets/close.png';
+import { Link } from 'react-router-dom';
 
 const Header = ({ isMenuActive, setIsMenuActive }) => {
   const closeMenu = () => {
@@ -9,13 +10,11 @@ const Header = ({ isMenuActive, setIsMenuActive }) => {
 
   return (
     <header className={isMenuActive ? 'active' : ''}>
-      <a href="#!" className="logo">Vespa</a>
+      <a href="/" className="logo">Laptops</a>
       <nav>
         <ul>
-          <li><a href="#" className="single-nav">Home</a></li>
-          <li><a href="#" className="single-nav">Lifestyle</a></li>
-          <li><a href="#" className="single-nav">Shop</a></li>
-          <li><a href="#" className="single-nav">About</a></li>
+          <Link to='/Homepage' className="single-nav">Home</Link>
+          <Link to='#' className="single-nav">Reservation</Link>
         </ul>
       </nav>
       <img src={close} className='close' onClick={closeMenu} />
