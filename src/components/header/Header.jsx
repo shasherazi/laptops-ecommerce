@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import close from '../../assets/close.png';
 import { Link } from 'react-router-dom';
+import styles from './Splash.module.css';
 
 const Header = ({ isMenuActive, setIsMenuActive }) => {
   const closeMenu = () => {
@@ -13,8 +14,14 @@ const Header = ({ isMenuActive, setIsMenuActive }) => {
       <a href="/" className="logo">Laptops</a>
       <nav>
         <ul>
-          <Link to='/Homepage' className="single-nav">Home</Link>
+          <Link to='/' className="single-nav">Home</Link>
           <Link to='#' className="single-nav">Reservation</Link>
+          <Link to="/login" className={styles.login}>
+            login
+          </Link>
+          <Link to="/signup" className={styles.signup}>
+            signup
+          </Link>
         </ul>
       </nav>
       <img src={close} className='close' onClick={closeMenu} />
