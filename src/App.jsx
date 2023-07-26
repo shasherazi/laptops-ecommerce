@@ -18,15 +18,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           {/* <Route path="/home" element={<Home />} /> */}
+          <Route path="/my-reservation" element={<ReservationPage />} />
         </Routes>
     </BrowserRouter>
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route path="/productdetail/:productId" element={<ProductDetailsPage />} />
-        <Route path="/my-reservation" element={<ReservationPage />} />
-      </Routes>
-    </Router>
   );
 }
 export default App;
