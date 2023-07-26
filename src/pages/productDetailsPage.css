@@ -1,0 +1,141 @@
+.details {
+  width: 100%;
+  height: 920px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: repeating-radial-gradient(circle at 0 0, transparent 0, hsl(0, 0%, 100%) 650px), repeating-linear-gradient(hsl(89, 100%, 96%), hsl(90, 100%, 98%));
+  background-color: #fbfffa;
+}
+
+.details .pro-details {
+  width: 85%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.details .pro-details .pro-details-img {
+  width: 60%;
+}
+
+.details .pro-details .pro-details-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.details .pro-details .pro-details-content {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.details .pro-details .pro-details-content .pro-details-info {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.details .pro-details .pro-details-content .pro-details-info h3 {
+  font-size: 2.5em;
+  font-weight: 600;
+  color: hsl(0, 0%, 20%);
+  text-align: right;
+  width: 100%;
+}
+
+.details .pro-details .pro-details-content .pro-details-info p {
+  font-size: 1.2em;
+  font-weight: 400;
+  color: hsl(0, 0%, 20%);
+  text-align: center;
+  width: 70%;
+}
+
+.details .pro-details .pro-details-content .pro-details-info p:nth-child(even) {
+  background-color: hsl(0, 0%, 90%);
+  padding: 10px 0;
+}
+
+.details .pro-details .pro-details-content .pro-details-reserve {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+ .pro-details-content .pro-details-reserve button {
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 35px;
+  background-color: hsl(76, 88%, 41%);
+  color: hsl(0, 0%, 100%);
+  font-size: 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.details .pro-details .home-back-button {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  bottom: 90px;
+}
+
+.details .pro-details .home-back-button button {
+  width: 100%;
+  height: 50%;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.2em;
+  background-color: hsl(76, 88%, 41%);
+  color: hsl(0, 0%, 100%);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 960px) {
+  .details {
+    height: 100%;
+  }
+
+  .details .pro-details {
+    margin: 75px 0;
+    flex-direction: column;
+  }
+
+  .details .pro-details .pro-details-content .pro-details-info h3 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .details .pro-details .pro-details-content .pro-details-info p {
+    font-size: 1em;
+    width: 100%;
+  }
+
+  .details .pro-details .pro-details-content .pro-details-reserve {
+    width: auto;
+  }
+
+  .details .pro-details .home-back-button {
+    left: 75%;
+    top: -55px;
+  }
+}
