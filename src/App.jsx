@@ -26,6 +26,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route exact path="/" element={<HomePage />} />
             <Route path="/productdetail/:productId" element={<ProductDetailsPage />} />
+            <Route path="/my-reservation" element={<ReservationPage />} />
           </Routes>
           <img
             src={menu}
@@ -34,17 +35,6 @@ function App() {
         </section>
       </main>
     </>
-    <BrowserRouter>
-        <Routes>
-          <Route exact path="/Homepage" element={<HomePage />} />
-          <Route path="/Homepage/productdetail/:productId" element={<ProductDetailsPage />} />
-          <Route path="/" element={<Splash />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          {/* <Route path="/home" element={<Home />} /> */}
-          <Route path="/my-reservation" element={<ReservationPage />} />
-        </Routes>
-    </BrowserRouter>
   );
 }
 export default App;
