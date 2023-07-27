@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "name": "Product 1",
+    "picture": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed",
+    "price": 29.99,
+    "cpu": "Intel Core i5",
+    "memory": "8GB RAM",
+    "storage": "256GB SSD"
+  },
+  {
+    "id": 2,
+    "name": "Product 2",
+    "picture": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed",
+    "price": 39.99,
+    "cpu": "AMD Ryzen 7",
+    "memory": "16GB RAM",
+    "storage": "512GB SSD"
+  },
+  {
+    "id": 3,
+    "name": "Product 3",
+    "picture": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed",
+    "price": 19.99,
+    "cpu": "Intel Core i3",
+    "memory": "4GB RAM",
+    "storage": "128GB SSD"
+  }
+  ,
+  {
+    "id": 4,
+    "name": "Product 4",
+    "picture": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed",
+    "price": 19.99,
+    "cpu": "Intel Core i3",
+    "memory": "4GB RAM",
+    "storage": "128GB SSD"
+  }
+  ,
+  {
+    "id": 5,
+    "name": "Product 5",
+    "picture": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed",
+    "price": 19.99,
+    "cpu": "Intel Core i3",
+    "memory": "4GB RAM",
+    "storage": "128GB SSD"
+  }
+  ,
+  {
+    "id": 6,
+    "name": "Product 6",
+    "picture": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed",
+    "price": 19.99,
+    "cpu": "Intel Core i3",
+    "memory": "4GB RAM",
+    "storage": "128GB SSD"
+  }
+]

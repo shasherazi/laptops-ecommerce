@@ -1,0 +1,105 @@
+.slick-list {
+  width: 85%;
+  height: 550px;
+  margin: 0 auto;
+}
+
+.slick-track {
+  top: 100px;
+}
+
+.slick-arrow {
+  background-color: hsl(0, 0%, 86%);
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  width: 110px;
+  height: 90px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.slick-prev {
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.slick-arrow:hover,
+.slick-arrow:focus {
+  background-color: hsl(76, 57%, 47%);
+  border: 1px solid hsl(76, 68%, 32%);
+}
+
+.slick-prev::before,
+.slick-next::before {
+  font-size: 40px;
+}
+
+.pro-list {
+  height: 450px;
+  position: relative;
+}
+
+.pro-list .pro-list-cricle {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: hsla(76, 57%, 47%, 0.107);
+  position: absolute;
+  top: 0;
+  left: 18%;
+  z-index: -1;
+}
+
+.pro-list .pro-list-reserve {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.pro-list h3 {
+  width: 180px;
+  padding: 10px 0;
+  border-bottom: 3px dotted hsl(0, 0%, 80%);
+  margin: 0 auto;
+}
+
+.pro-list:hover {
+  box-shadow: 0 0 15px hsl(0, 0%, 80%);
+  border-radius: 15px;
+  background-color: hsl(76, 88%, 41%);
+  z-index: 1;
+}
+
+@media screen and (max-width: 960px) {
+  .slick-list {
+    width: 100%;
+    height: 480px;
+  }
+
+  .slick-track {
+    top: 50px;
+  }
+
+  .slick-arrow {
+    width: 60px;
+    height: 60px;
+  }
+
+  .pro-list .pro-list-cricle {
+    left: 19%;
+  }
+
+  .slick-prev::before,
+  .slick-next::before {
+    font-size: 20px;
+  }
+}
