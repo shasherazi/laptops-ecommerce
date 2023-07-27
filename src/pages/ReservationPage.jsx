@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchReservations, removeReservation } from '../redux/reservations/reservationSlice';
 import './ReservationPage.css';
 
@@ -25,7 +26,9 @@ export default function ReservationPage() {
     <section className='reservation'>
       <h1>Reservation List</h1>
       <div className='reservation-new'>
-        <button type='button'> Abb New Reservation</button>
+      <Link to="/new-reservation">
+            <button type='button'>Add New Reservation</button>
+          </Link>
       </div>
       {reservations.map((reservation) => (
         <div key={reservation.id} className='reservation-list'>

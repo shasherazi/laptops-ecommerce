@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Product 1",
-    "picture": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed",
+    "picture": "http://localhost:5173/src/assets/lapp.png",
     "price": 29.99,
     "cpu": "Intel Core i5",
     "memory": "8GB RAM",
@@ -11,7 +11,7 @@
   {
     "id": 2,
     "name": "Product 2",
-    "picture": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed",
+    "picture": "http://localhost:5173/src/assets/lapp.png",
     "price": 39.99,
     "cpu": "AMD Ryzen 7",
     "memory": "16GB RAM",
@@ -20,7 +20,7 @@
   {
     "id": 3,
     "name": "Product 3",
-    "picture": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed",
+    "picture": "http://localhost:5173/src/assets/lapp.png",
     "price": 19.99,
     "cpu": "Intel Core i3",
     "memory": "4GB RAM",
@@ -30,7 +30,7 @@
   {
     "id": 4,
     "name": "Product 4",
-    "picture": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed",
+    "picture": "http://localhost:5173/src/assets/lapp.png",
     "price": 19.99,
     "cpu": "Intel Core i3",
     "memory": "4GB RAM",
@@ -40,7 +40,7 @@
   {
     "id": 5,
     "name": "Product 5",
-    "picture": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed",
+    "picture": "http://localhost:5173/src/assets/lapp.png",
     "price": 19.99,
     "cpu": "Intel Core i3",
     "memory": "4GB RAM",
@@ -50,7 +50,7 @@
   {
     "id": 6,
     "name": "Product 6",
-    "picture": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed",
+    "picture": "http://localhost:5173/src/assets/lapp.png",
     "price": 19.99,
     "cpu": "Intel Core i3",
     "memory": "4GB RAM",
