@@ -1,5 +1,6 @@
 import '../css/reservation.css'
 import { Link } from 'react-router-dom';
+import search from '../assets/search.png'
 
 const Reservation = () => {
     return (
@@ -11,8 +12,7 @@ const Reservation = () => {
                 <Link  to="#!" className="">London</Link >
                 <Link  to="#!" className="">Reserve</Link >
             </div>
-
-
+            <img className='search' src={search} />
         </div>
     )
 }

@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    position: relative;
 }
 
 .reserve-section::before {
@@ -46,6 +47,7 @@
     font-weight: 500;
     z-index: 1;
     font-size: 15px;
+    width: 80%;
 }
 
 .reserve-section .button-container{
@@ -68,4 +70,22 @@
 .button-container a:hover{
     background-color: #7aae0a;
     color: white;
+}
+
+.search{
+    position: absolute;
+    right: 50px;
+    top: 30px;
+    background-color: white;
+    border-radius: 35%;
+    padding: 5px 8px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+@media all and (min-width: 968px) {
+    .reserve-section h1{
+        font-size: 35px;
+    }
 }
