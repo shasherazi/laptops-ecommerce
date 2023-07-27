@@ -118,6 +118,7 @@
   .details .pro-details {
     margin: 75px 0;
     flex-direction: column;
+    flex-wrap: nowrap;
   }
 
   .details .pro-details .pro-details-content .pro-details-info h3 {
