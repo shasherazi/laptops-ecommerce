@@ -9,6 +9,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .reserve-section::before {
@@ -18,7 +21,51 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #143f15;
+    background-color: #0c0c0c;
     opacity: 0.5;
 }
 
+
+.reserve-section h1{
+    color: white;
+    font-weight: 900;
+    z-index: 1;
+    font-size: 25px;
+}
+
+.reserve-section hr{
+    width: 150px;
+    height: 2px;
+    background-color: #97bf0f;
+    border: none;
+    z-index: 1;
+}
+
+.reserve-section p{
+    color: white;
+    font-weight: 500;
+    z-index: 1;
+    font-size: 15px;
+}
+
+.reserve-section .button-container{
+    display: flex;
+    gap: 10px;
+    z-index: 1;
+}
+
+.button-container a{
+    text-decoration: none;
+    background-color: white;
+    font-weight: 500;
+    padding: 10px 30px;
+    border-radius: 5px;
+    color: #97bf0f;
+    transition: all 0.3s ease-in-out;
+    border-radius: 20px;
+}
+
+.button-container a:hover{
+    background-color: #7aae0a;
+    color: white;
+}
