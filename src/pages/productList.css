@@ -72,13 +72,6 @@
   margin: 0 auto;
 }
 
-.pro-list:hover {
-  box-shadow: 0 0 15px hsl(0, 0%, 80%);
-  border-radius: 15px;
-  background-color: hsl(76, 88%, 41%);
-  z-index: 1;
-}
-
 @media screen and (max-width: 960px) {
   .slick-list {
     width: 100%;
