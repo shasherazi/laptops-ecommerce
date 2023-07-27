@@ -9,6 +9,7 @@ import './style/home.css'
 import HomePage from './pages/HomePage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import ReservationPage from "./pages/ReservationPage";
+import Reservation from "./pages/Reservation";
 
 function App() {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -27,6 +28,7 @@ function App() {
             <Route exact path="/" element={<HomePage />} />
             <Route path="/productdetail/:productId" element={<ProductDetailsPage />} />
             <Route path="/my-reservation" element={<ReservationPage />} />
+            <Route path="/new-reservation" element={<Reservation />} />
           </Routes>
           <img
             src={menu}
