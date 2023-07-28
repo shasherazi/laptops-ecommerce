@@ -103,6 +103,7 @@ button {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
+  align-items: center;
 }
 
 .admin-page .admin-page-content .admin-page-show .admin-page-list ul li:nth-child(odd) {
