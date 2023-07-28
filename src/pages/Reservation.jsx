@@ -1,29 +1,30 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import '../css/reservation.css'
-import cities from '../demo/city.json';
+// import cities from '../demo/city.json';
 
 const Reservation = () => {
-  const [selectedCity, setSelectedCity] = useState('');
+//   const [selectedCity, setSelectedCity] = useState('');
 
-  const handleCityChange = (event) => {
-    setSelectedCity(event.target.value);
-  };
+//   const handleCityChange = (event) => {
+//     setSelectedCity(event.target.value);
+//   };
 
-  const filteredCities = cities.filter(cit => cit.city !== null);
-  filteredCities.sort((a, b) => a.city.localeCompare(b.city));
+//   const filteredCities = cities.filter(cit => cit.city !== null);
+//   filteredCities.sort((a, b) => a.city.localeCompare(b.city));
 
     return (
         <div className='reserve-section'>
-            <h1>Book a Laptop Testa-Ride</h1>
+            <h1>Reserve a Laptop Testa-Ride</h1>
             <hr/>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, ad.</p>
             <div className="button-container">
                 <form>
-                <select value={selectedCity} onChange={handleCityChange}>
+                {/* <select value={selectedCity} onChange={handleCityChange}>
                     {filteredCities.map(cit => (
                     <option key={cit.city} value={cit.city}>{cit.city}</option>
                     ))}
-                </select>
+                </select> */}
+                <input type='text' placeholder='Enter city' />
                 <input type='number' placeholder='Enter quantity' min="1"  />
                 <button type='submit'>Reserve</button>
                 </form>

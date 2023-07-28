@@ -101,15 +101,16 @@
 }
 
 .button-container input::placeholder {
-  color: #97bf0f;
+  /* color: gray; */
+  font-weight: 500;
 }
 
 .button-container button {
   text-decoration: none;
-  background-color: white;
+  background-color: #7aae0a;
   font-weight: 500;
   padding: 10px 20px;
-  color: #97bf0f;
+  color: white;
   transition: all 0.3s ease-in-out;
   border-radius: 20px;
   border: none;
@@ -118,8 +119,7 @@
 }
 
 .button-container button:hover {
-  background-color: #7aae0a;
-  color: white;
+  background-color: #97bf0f;
 }
 
 .search {
