@@ -104,14 +104,7 @@ const AdminProductManagement = () => {
   };
 
   const handleDeleteProduct = (productId) => {
-    // Dispatch the deleteProduct action to remove the product with the given productId
     dispatch(deleteProduct(productId));
-  };
-
-  const handleSearch = () => {
-    // Perform search based on the searchKeyword
-    // For demonstration purposes, we'll just log the searchKeyword to the console
-    console.log('Searching for:', searchKeyword);
   };
 
   if (isLoading) {
@@ -191,12 +184,19 @@ const AdminProductManagement = () => {
               value={searchKeyword}
               onChange={(e) => setSearchKeyword(e.target.value)}
             />
-            <button onClick={handleSearch}>Search</button>
           </div>
           <div className='admin-page-list'>
             <h2>Product List</h2>
             <ul>
-              {products.map((product) => (
+              {products.filter((product) => {
+                if (searchKeyword === '') {
+                  return product;
+                }
+                if (product.name.toLowerCase().includes(searchKeyword.toLowerCase())) {
+                  return product;
+                }
+                return null;
+              }).map((product) => (
                 <li key={product.id}>
                   <p>{product.name}</p>
                   <button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
