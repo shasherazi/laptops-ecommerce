@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts, addProduct, deleteProduct } from '../redux/products/productSlice';
 import './AdminPage.css';
+import { Link } from 'react-router-dom';
 
 const AdminProductManagement = () => {
   const dispatch = useDispatch();
@@ -46,13 +47,17 @@ const AdminProductManagement = () => {
     if (!productMemory.trim()) {
       isValid = false;
       errors.memory = 'Product memory is required';
+    }else if (isNaN(productMemory) || +productMemory <= 0) {
+      isValid = false;
+      errors.price = 'Product memory must be a positive number';
     }
     if (!productStorage.trim()) {
       isValid = false;
-      errors.storage = 'Product storage is required';
+      errors.storage = 'Product productStorage is required';
+    }else if (isNaN(productStorage) || +productStorage <= 0) {
+      isValid = false;
+      errors.price = 'Product Storage must be a positive number';
     }
-
-
     if (!productPrice.trim()) {
       isValid = false;
       errors.price = 'Product price is required';
@@ -124,7 +129,7 @@ const AdminProductManagement = () => {
           <div className='from-fields'>
             <label>Product Price:</label>
             <input
-              type="text"
+              type="number"
               value={productPrice}
               onChange={(e) => setProductPrice(e.target.value)}
             />
@@ -151,7 +156,7 @@ const AdminProductManagement = () => {
           <div className='from-fields'>
             <label>Product Memory:</label>
             <input
-              type="text"
+              type="number"
               value={productMemory}
               onChange={(e) => setProductMemory(e.target.value)}
             />
@@ -160,7 +165,7 @@ const AdminProductManagement = () => {
           <div className='from-fields'>
             <label>Product Storage:</label>
             <input
-              type="text"
+              type="number"
               value={productStorage}
               onChange={(e) => setProductStorage(e.target.value)}
             />
@@ -191,7 +196,7 @@ const AdminProductManagement = () => {
                 return null;
               }).map((product) => (
                 <li key={product.id}>
-                  <p>{product.name}</p>
+                  <Link to={`/productdetail/${product.id}`}>{product.name}</Link>
                   <button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
                 </li>
               ))}
