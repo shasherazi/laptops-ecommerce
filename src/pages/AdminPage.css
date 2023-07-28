@@ -103,14 +103,36 @@ button {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
-  align-items: center;
 }
 
-.admin-page .admin-page-content .admin-page-show .admin-page-list ul li:nth-child(even) {
+.admin-page .admin-page-content .admin-page-show .admin-page-list ul li:nth-child(odd) {
   background-color: hsl(0, 0%, 90%);
   padding: 10px 0;
 }
 
 .admin-page .admin-page-content .admin-page-show .admin-page-list ul li button:hover {
   background-color: hsl(0, 89%, 62%);
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    height: 100%;
+  }
+
+  .admin-page .admin-page-content {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .admin-page .admin-page-content .admin-page-add {
+    width: 80%;
+    border-bottom: 3px solid #ccc;
+    padding-bottom: 15px;
+  }
+
+  .admin-page .admin-page-content .admin-page-show {
+    width: 80%;
+  }
 }
