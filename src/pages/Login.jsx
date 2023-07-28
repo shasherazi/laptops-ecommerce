@@ -1,5 +1,5 @@
 import styles from "../css/Login.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
 import { setEmail, setToken } from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +10,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const { email } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
@@ -34,10 +35,11 @@ function Login() {
           toast.success("Login successful!");
           dispatch(setToken(response.headers.get("Authorization")));
           console.log(response.headers.get("Authorization"));
+          navigate("/");
           return response.json();
         }
-        const data = await response.json();
-        return await Promise.reject(data.status.message);
+        const data = await response.text();
+        return await Promise.reject(data);
       })
       .catch((error) => {
         toast.error(error);
