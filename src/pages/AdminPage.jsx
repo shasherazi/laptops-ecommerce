@@ -196,8 +196,8 @@ const AdminProductManagement = () => {
                 return null;
               }).map((product) => (
                 <li key={product.id}>
-                  <Link to={`/productdetail/${product.id}`}>{product.name}</Link>
-                  <button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
+                    <Link to={`/productdetail/${product.id}`}>{product.name}</Link>
+                    <button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
                 </li>
               ))}
             </ul>
