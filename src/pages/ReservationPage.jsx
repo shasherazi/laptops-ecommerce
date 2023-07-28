@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchReservations, removeReservation } from '../redux/reservations/reservationSlice';
-import './ReservationPage.css';
+import './reservationPage.css';
 
 export default function ReservationPage() {
   const dispatch = useDispatch();
