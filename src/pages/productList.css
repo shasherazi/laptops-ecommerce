@@ -73,9 +73,7 @@
 }
 
 .pro-list:hover {
-  box-shadow: 0 0 15px hsl(0, 0%, 80%);
-  border-radius: 15px;
-  background-color: hsl(76, 88%, 41%);
+  cursor: pointer;
   z-index: 1;
 }
 
