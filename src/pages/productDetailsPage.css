@@ -116,7 +116,7 @@
   }
 
   .details .pro-details {
-    margin: 75px 0;
+    margin: 95px 0;
     flex-direction: column;
     flex-wrap: nowrap;
   }
@@ -136,7 +136,7 @@
   }
 
   .details .pro-details .home-back-button {
-    left: 75%;
-    top: -55px;
+    left: 80%;
+    top: -95px;
   }
 }

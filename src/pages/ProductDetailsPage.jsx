@@ -65,8 +65,8 @@ export default function ProductDetailsPage() {
             <h3>{product.name}</h3>
             <p>Price: ${product.price}</p>
             <p>Cpu: {product.cpu}</p>
-            <p>memory: {product.memory}</p>
-            <p>storage: {product.storage}</p>
+            <p>memory: {product.memory}GB</p>
+            <p>storage: {product.storage}GB</p>
           </div>
           <div className='pro-details-reserve'>
             <button type='button' onClick={() => navigate(`reservation/${productId}`)}>Reserve</button>
