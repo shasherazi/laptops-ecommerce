@@ -6,6 +6,12 @@
 #97BF0F
 
 */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 main {
   display: flex;
   position: relative;
@@ -41,7 +47,6 @@ header.active {
   height: 100%;
   width: 100%;
   position: relative;
-  padding-top: 40px;
 }
 
 .menu {
@@ -123,8 +128,9 @@ header nav ul li:hover .single-nav {
   }
 
   .main-content {
-    width: 80%;
+    width: calc(100vw - 150px);
     position: absolute;
-    left: 15%;
+    left: 150px;
+    padding-top: 0;
   }
 }

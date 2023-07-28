@@ -11,7 +11,7 @@ const Header = ({ isMenuActive, setIsMenuActive }) => {
 
   return (
     <header className={isMenuActive ? 'active' : ''}>
-      <a href="/" className="logo">Laptops</a>
+      <Link  to="/" className="logo">Laptops</Link >
       <nav>
         <ul>
           <Link to='/' className="single-nav"><li>Home</li></Link>
