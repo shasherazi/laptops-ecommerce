@@ -9,7 +9,7 @@ import './style/home.css'
 import HomePage from './pages/HomePage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import ReservationPage from "./pages/ReservationPage";
-import AdminPage from "./pages/AdminPagePage";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   const [isMenuActive, setIsMenuActive] = useState(false);
