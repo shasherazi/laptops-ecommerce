@@ -63,6 +63,8 @@
   justify-content: space-around;
   align-items: center;
   height: 100%;
+  cursor: pointer;
+  margin: 0 10px;
 }
 
 .pro-list h3 {
@@ -70,11 +72,6 @@
   padding: 10px 0;
   border-bottom: 3px dotted hsl(0, 0%, 80%);
   margin: 0 auto;
-}
-
-.pro-list:hover {
-  cursor: pointer;
-  z-index: 1;
 }
 
 @media screen and (max-width: 960px) {
