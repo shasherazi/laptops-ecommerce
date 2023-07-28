@@ -110,3 +110,7 @@ button {
   background-color: hsl(0, 0%, 90%);
   padding: 10px 0;
 }
+
+.admin-page .admin-page-content .admin-page-show .admin-page-list ul li button:hover {
+  background-color: hsl(0, 89%, 62%);
+}
