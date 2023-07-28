@@ -14,7 +14,7 @@ const Reservation = () => {
 
     return (
         <div className='reserve-section'>
-            <h1>Book a vespa Testa-Ride</h1>
+            <h1>Book a Laptop Testa-Ride</h1>
             <hr/>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, ad.</p>
             <div className="button-container">
