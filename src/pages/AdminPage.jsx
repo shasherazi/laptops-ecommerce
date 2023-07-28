@@ -44,26 +44,26 @@ const AdminProductManagement = () => {
       isValid = false;
       errors.cpu = 'Product cpu is required';
     }
-    if (!productMemory.trim()) {
-      isValid = false;
-      errors.memory = 'Product memory is required';
-    }else if (isNaN(productMemory) || +productMemory <= 0) {
-      isValid = false;
-      errors.price = 'Product memory must be a positive number';
-    }
-    if (!productStorage.trim()) {
-      isValid = false;
-      errors.storage = 'Product productStorage is required';
-    }else if (isNaN(productStorage) || +productStorage <= 0) {
-      isValid = false;
-      errors.price = 'Product Storage must be a positive number';
-    }
     if (!productPrice.trim()) {
       isValid = false;
-      errors.price = 'Product price is required';
+      errors.price = 'Product price is required to be Nmbers only';
     } else if (isNaN(productPrice) || +productPrice <= 0) {
       isValid = false;
       errors.price = 'Product price must be a positive number';
+    }
+    if (!productMemory.trim()) {
+      isValid = false;
+      errors.memory = 'Product memory is required to be Nmbers only';
+    } else if (isNaN(productMemory) || +productMemory <= 0) {
+      isValid = false;
+      errors.memory = 'Product memory must be a positive number';
+    }
+    if (!productStorage.trim()) {
+      isValid = false;
+      errors.storage = 'Product productStorage is required to be Nmbers only';
+    } else if (isNaN(productStorage) || +productStorage <= 0) {
+      isValid = false;
+      errors.storage = 'Product Storage must be a positive number';
     }
 
     setFormErrors(errors);
