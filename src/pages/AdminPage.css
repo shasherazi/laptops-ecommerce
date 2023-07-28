@@ -95,7 +95,7 @@ button {
 
 .admin-page .admin-page-content .admin-page-show .admin-page-list ul li {
   width: 100%;
-  height: 100%;
+  height: auto;
   padding: 0.5rem;
   font-size: 1.2rem;
   font-weight: 600;
@@ -107,11 +107,23 @@ button {
 
 .admin-page .admin-page-content .admin-page-show .admin-page-list ul li:nth-child(odd) {
   background-color: hsl(0, 0%, 90%);
-  padding: 10px 0;
+}
+
+.admin-page .admin-page-content .admin-page-show .admin-page-list ul li button {
+  margin-top: 0;
 }
 
 .admin-page .admin-page-content .admin-page-show .admin-page-list ul li button:hover {
   background-color: hsl(0, 89%, 62%);
+}
+
+.admin-page .admin-page-content .admin-page-show .admin-page-list ul li a {
+  text-decoration: none;
+  color: hsl(0, 0%, 0%);
+}
+
+.admin-page .admin-page-content .admin-page-show .admin-page-list ul li a:hover {
+  color: hsl(76, 88%, 41%);
 }
 
 @media screen and (max-width: 768px) {
