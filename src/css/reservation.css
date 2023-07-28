@@ -53,6 +53,12 @@
   z-index: 1;
 }
 
+.button-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .button-container a {
   text-decoration: none;
   background-color: white;
@@ -64,6 +70,54 @@
 }
 
 .button-container a:hover {
+  background-color: #7aae0a;
+  color: white;
+}
+
+.button-container select {
+  text-decoration: none;
+  background-color: white;
+  font-weight: 500;
+  padding: 10px 20px;
+  color: #97bf0f;
+  transition: all 0.3s ease-in-out;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.button-container input {
+  text-decoration: none;
+  background-color: white;
+  font-weight: 500;
+  padding: 10px 20px;
+  color: #97bf0f;
+  transition: all 0.3s ease-in-out;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.button-container input::placeholder {
+  color: #97bf0f;
+}
+
+.button-container button {
+  text-decoration: none;
+  background-color: white;
+  font-weight: 500;
+  padding: 10px 20px;
+  color: #97bf0f;
+  transition: all 0.3s ease-in-out;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.button-container button:hover {
   background-color: #7aae0a;
   color: white;
 }
@@ -88,5 +142,11 @@
   .search {
     right: 50px;
     top: 30px;
+  }
+
+  .button-container form {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
   }
 }
