@@ -101,8 +101,8 @@ button {
   font-weight: 600;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -119,6 +119,9 @@ button {
 }
 
 .admin-page .admin-page-content .admin-page-show .admin-page-list ul li a {
+  max-width: 40%;
+  height: auto;
+  word-wrap: break-word;
   text-decoration: none;
   color: hsl(0, 0%, 0%);
 }
