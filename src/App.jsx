@@ -9,6 +9,7 @@ import './style/home.css'
 import HomePage from './pages/HomePage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import ReservationPage from "./pages/ReservationPage";
+import Reservation from "./pages/Reservation";
 import AdminPage from "./pages/AdminPage";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route exact path="/" element={<HomePage />} />
             <Route path="/productdetail/:productId" element={<ProductDetailsPage />} />
             <Route path="/my-reservation" element={<ReservationPage />} />
+            <Route path="/productdetail/:productId/reservation/:productId" element={<Reservation />} />
             <Route path="/admin" element={<AdminPage />} />
           </Routes>
           <img

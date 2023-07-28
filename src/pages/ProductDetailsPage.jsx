@@ -1,11 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { fetchProductDetails } from '../redux/products/selectedProductSlice';
 import { useParams } from 'react-router-dom';
 import './productDetailsPage.css';
 
 export default function ProductDetailsPage() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { productId } = useParams();
   const {
     productDetails, isLoading, isError,
@@ -67,7 +69,7 @@ export default function ProductDetailsPage() {
             <p>storage: {product.storage}GB</p>
           </div>
           <div className='pro-details-reserve'>
-            <button type='button'>Reserve</button>
+            <button type='button' onClick={() => navigate(`reservation/${productId}`)}>Reserve</button>
           </div>
         </div>
         <div className='home-back-button'>

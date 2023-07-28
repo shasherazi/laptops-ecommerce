@@ -1,0 +1,152 @@
+.reserve-section {
+  height: 100%;
+  width: 100%;
+  background-image: url('../assets/lapt.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reserve-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0c0c0c;
+  opacity: 0.85;
+}
+
+.reserve-section h1 {
+  color: white;
+  font-weight: 900;
+  z-index: 1;
+  font-size: 25px;
+}
+
+.reserve-section hr {
+  width: 150px;
+  height: 2px;
+  background-color: #97bf0f;
+  border: none;
+  z-index: 1;
+}
+
+.reserve-section p {
+  color: white;
+  font-weight: 500;
+  z-index: 1;
+  font-size: 15px;
+  width: 80%;
+}
+
+.reserve-section .button-container {
+  display: flex;
+  gap: 10px;
+  z-index: 1;
+}
+
+.button-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button-container a {
+  text-decoration: none;
+  background-color: white;
+  font-weight: 500;
+  padding: 10px 30px;
+  color: #97bf0f;
+  transition: all 0.3s ease-in-out;
+  border-radius: 20px;
+}
+
+.button-container a:hover {
+  background-color: #7aae0a;
+  color: white;
+}
+
+.button-container select {
+  text-decoration: none;
+  background-color: white;
+  font-weight: 500;
+  padding: 10px 20px;
+  color: #97bf0f;
+  transition: all 0.3s ease-in-out;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.button-container input {
+  text-decoration: none;
+  background-color: white;
+  font-weight: 500;
+  padding: 10px 20px;
+  color: #97bf0f;
+  transition: all 0.3s ease-in-out;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.button-container input::placeholder {
+  /* color: gray; */
+  font-weight: 500;
+}
+
+.button-container button {
+  text-decoration: none;
+  background-color: #7aae0a;
+  font-weight: 500;
+  padding: 10px 20px;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  background-color: #97bf0f;
+}
+
+.search {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: white;
+  border-radius: 35%;
+  padding: 5px 8px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+@media all and (min-width: 968px) {
+  .reserve-section h1 {
+    font-size: 35px;
+  }
+
+  .search {
+    right: 50px;
+    top: 30px;
+  }
+
+  .button-container form {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+}
