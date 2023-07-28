@@ -26,9 +26,9 @@ export default function ReservationPage() {
     <section className='reservation'>
       <h1>Reservation List</h1>
       <div className='reservation-new'>
-      <Link to="/new-reservation">
-            <button type='button'>Add New Reservation</button>
-          </Link>
+        <Link to="/">
+              <button type='button'>Add Reservation</button>
+        </Link>
       </div>
       {reservations.map((reservation) => (
         <div key={reservation.id} className='reservation-list'>

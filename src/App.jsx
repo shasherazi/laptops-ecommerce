@@ -28,7 +28,7 @@ function App() {
             <Route exact path="/" element={<HomePage />} />
             <Route path="/productdetail/:productId" element={<ProductDetailsPage />} />
             <Route path="/my-reservation" element={<ReservationPage />} />
-            <Route path="/new-reservation" element={<Reservation />} />
+            <Route path="/productdetail/:productId/reservation/:productId" element={<Reservation />} />
           </Routes>
           <img
             src={menu}
