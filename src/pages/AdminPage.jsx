@@ -61,8 +61,6 @@ const AdminProductManagement = () => {
       errors.price = 'Product price must be a positive number';
     }
 
-    // Add validation for other fields (picture, cpu, memory, storage) if needed
-
     setFormErrors(errors);
     return isValid;
   };
@@ -71,7 +69,6 @@ const AdminProductManagement = () => {
     const isValid = validateForm();
 
     if (isValid) {
-      // Create a new product object with the entered data
       const newProduct = {
         name: productName,
         price: productPrice,
@@ -79,13 +76,9 @@ const AdminProductManagement = () => {
         cpu: productCPU,
         memory: productMemory,
         storage: productStorage,
-        // Add other product details here if needed
       };
 
-      // Dispatch the addProduct action to add the new product
       dispatch(addProduct(newProduct));
-
-      // Clear the input fields after adding the product
       setProductName('');
       setProductPrice('');
       setProductPicture('');
