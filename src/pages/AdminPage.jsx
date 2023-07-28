@@ -60,7 +60,7 @@ const AdminProductManagement = () => {
     }
     if (!productStorage.trim()) {
       isValid = false;
-      errors.storage = 'Product productStorage is required to be Nmbers only';
+      errors.storage = 'Product Storage is required to be Nmbers only';
     } else if (isNaN(productStorage) || +productStorage <= 0) {
       isValid = false;
       errors.storage = 'Product Storage must be a positive number';
