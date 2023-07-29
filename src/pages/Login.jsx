@@ -34,7 +34,6 @@ function Login() {
         if (response.ok) {
           toast.success("Login successful!");
           dispatch(setToken(response.headers.get("Authorization")));
-          console.log(response.headers.get("Authorization"));
           navigate("/");
           return response.json();
         }
