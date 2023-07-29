@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import demoData from '../../demo/demo.json';
 
-const productUrl = demoData;
+const productUrl = 'http://127.0.0.1:3000/laptops';
 const initialState = {
   products: [],
   isLoading: false,
@@ -10,9 +9,10 @@ const initialState = {
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
   try {
-    // const response = await fetch(productUrl);
-    // const products = await response.json();
-    return productUrl;
+    const response = await fetch(productUrl);
+    
+    const products = await response.json();
+    return products;
   } catch (err) {
     return err;
   }
@@ -20,10 +20,17 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ()
 
 export const addProduct = createAsyncThunk('products/addProduct', async (newProduct) => {
   try {
-    // Here, you would make a POST request to your API endpoint to add the new product
-    // For now, we'll simulate the addition of a product to the demo data
-    // Assume that `newProduct` is an object containing the details of the new product (id, name, price, picture, etc.)
-    return newProduct;
+    const response = await fetch(productUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        laptop: newProduct,
+      }),
+    });
+    const addedProduct = await response.json();
+    return addedProduct;
   } catch (err) {
     return err;
   }
@@ -31,9 +38,10 @@ export const addProduct = createAsyncThunk('products/addProduct', async (newProd
 
 export const deleteProduct = createAsyncThunk('products/deleteProduct', async (productId) => {
   try {
-    // Here, you would make a DELETE request to your API endpoint to delete the product with the given `productId`
-    // For now, we'll simulate the deletion of a product from the demo data
-    return productId;
+    const response = await fetch(`${productUrl}/${productId}`, {
+      method: 'DELETE',
+    });
+    return response;
   } catch (err) {
     return err;
   }
