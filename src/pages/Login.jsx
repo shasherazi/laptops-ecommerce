@@ -1,7 +1,7 @@
 import styles from "../css/Login.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
-import { setEmail, setToken } from "../redux/user/userSlice";
+import { setEmail, setToken, setIsAdmin } from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useState } from "react";
@@ -39,6 +39,9 @@ function Login() {
         }
         const data = await response.text();
         return await Promise.reject(data);
+      })
+      .then((data) => {
+        dispatch(setIsAdmin(data.status.data.user.role === "admin"));
       })
       .catch((error) => {
         toast.error(error);

@@ -10,7 +10,7 @@ const initialState = {
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
   try {
     const response = await fetch(productUrl);
-    
+
     const products = await response.json();
     return products;
   } catch (err) {
@@ -24,6 +24,7 @@ export const addProduct = createAsyncThunk('products/addProduct', async (newProd
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `${localStorage.getItem('Authorization')}`,
       },
       body: JSON.stringify({
         laptop: newProduct,
@@ -38,7 +39,7 @@ export const addProduct = createAsyncThunk('products/addProduct', async (newProd
 
 export const deleteProduct = createAsyncThunk('products/deleteProduct', async (productId) => {
   try {
-    const response = await fetch(`${productUrl}/${productId}`, {
+    const response = await fetch(`${productUrl} / ${productId}`, {
       method: 'DELETE',
     });
     return response;
@@ -54,7 +55,7 @@ export const productSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-    // fetchProducts start state
+      // fetchProducts start state
       .addCase(fetchProducts.pending, (state) => ({
         ...state,
         isLoading: true,
