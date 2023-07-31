@@ -1,79 +1,73 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const fetchReservationsAPI = async () => {
-
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  const demoReservations = [
-    {
-      id: 1,
-      productName: 'Product A',
-      city: 'New York',
-      quantity: 2,
-    },
-    {
-      id: 2,
-      productName: 'Product B',
-      city: 'Los Angeles',
-      quantity: 1,
-    },
-    {
-      id: 3,
-      productName: 'Product C',
-      city: 'Chicago',
-      quantity: 3,
-    },
-  ];
-
-  return demoReservations;
-};
-
-const addReservationAPI = async (newReservation) => {
-
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-
-  const newReservationId = Math.floor(Math.random() * 1000);
-
-
-  const addedReservation = {
-    ...newReservation,
-    id: newReservationId,
-  };
-
-  return addedReservation;
-};
-
-
-const removeReservationAPI = async (reservationId) => {
-
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  return reservationId;
-};
-
-
-export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async () => {
-  const response = await fetchReservationsAPI();
-  return response;
-});
-
-export const addReservation = createAsyncThunk('reservations/addReservation', async (newReservation) => {
-  const response = await addReservationAPI(newReservation);
-  return response;
-});
-
-export const removeReservation = createAsyncThunk('reservations/removeReservation', async (reservationId) => {
-  await removeReservationAPI(reservationId);
-  return reservationId;
-});
-
-
+const reservationAllurl = 'http://127.0.0.1:3000/reservations';
 const initialState = {
   reservations: [],
   isLoading: false,
   isError: false,
 };
+
+export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async () => {
+  try {
+    const response = await fetch(reservationAllurl, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${localStorage.getItem('Authorization')}`,
+      },
+      body: JSON.stringify(),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch reservations');
+    }
+    const reservations = await response.json();
+    return reservations;
+  } catch (err) {
+    return `Failed to fetch reservations: ${err.message}`;
+  }
+});
+
+export const addReservation = createAsyncThunk('reservations/addReservation', async (newReservation) => {
+  try {
+    const response = await fetch(reservationAllurl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${localStorage.getItem('Authorization')}`,
+      },
+      body: JSON.stringify({
+        reservation: newReservation,
+      }),
+    });
+    if (!response.ok) {
+      throw new Error('Failed to add reservation');
+    }
+    const addedReservation = await response.json();
+    return addedReservation;
+  } catch (err) {
+    return `Failed to fetch reservations: ${err.message}`;
+  }
+});
+
+export const removeReservation = createAsyncThunk('reservations/removeReservation', async (reservationId) => {
+  try {
+    const response = await fetch(`${reservationAllurl}/${reservationId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${localStorage.getItem('Authorization')}`,
+      },
+      body: JSON.stringify(),
+    });
+    if (!response.ok) {
+      throw new Error('Failed to remove reservation');
+    }
+    return reservationId;
+  } catch (err) {
+    return `Failed to fetch reservations: ${err.message}`;
+  }
+});
 
 const reservationSlice = createSlice({
   name: 'reservations',
