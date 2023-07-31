@@ -14,6 +14,7 @@ const AdminProductManagement = () => {
   const [productStorage, setProductStorage] = useState('');
   const [searchKeyword, setSearchKeyword] = useState('');
   const { products, isLoading, isError } = useSelector((state) => state.products);
+  const isAdmin = useSelector((state) => state.user.isAdmin);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -114,6 +115,7 @@ const AdminProductManagement = () => {
   return (
     <section className='admin-page'>
       <h1>Admin Product Management</h1>
+      {isAdmin ? (
       <div className='admin-page-content'>
         <div className='admin-page-add'>
           <h2>Add Product</h2>
@@ -204,6 +206,9 @@ const AdminProductManagement = () => {
           </div>
         </div>
       </div>
+      ) : (
+        <p>You are not authorized to access this page.</p>
+      )}
     </section>
   );
 };
