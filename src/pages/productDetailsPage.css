@@ -25,9 +25,7 @@
 }
 
 .details .pro-details .pro-details-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  width: 70%;
 }
 
 .details .pro-details .pro-details-content {
