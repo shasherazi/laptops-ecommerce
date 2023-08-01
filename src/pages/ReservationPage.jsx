@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchReservations, removeReservation } from '../redux/reservations/reservationSlice';
+// import { fetchProducts } from '../redux/products/productSlice';
+// import laptop_reserveSlice, { fetchLaptopReservations } from '../redux/reservations/laptop_reserveSlice';
 import './reservationPage.css';
 
 export default function ReservationPage() {
@@ -33,11 +35,8 @@ export default function ReservationPage() {
       {reservations.map((reservation) => (
         <div key={reservation.id} className='reservation-list'>
           <div className='reservation-list-info'>
-            <h3>{reservation.laptop_id}</h3>
-            <p>City: {reservation.city}</p>
-            <p>Quantity: {reservation.quantity}</p>
-            <p>Price: {reservation.reservation_id}</p>
-            <button type='button' onClick={() => handleRemoveReservation(reservation.reservation_id)}>Remove</button>
+            <p>ID: {reservation.id}</p>
+            <button type='button' onClick={() => handleRemoveReservation(reservation.id)}>Remove</button>
           </div>
         </div>
       ))}
