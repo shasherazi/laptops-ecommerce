@@ -108,7 +108,7 @@ const reservationSlice = createSlice({
       .addCase(removeReservation.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = false;
-        state.reservations = state.reservations.filter((reservation) => reservation.id !== action.payload);
+        state.reservations = state.reservations.filter((reservation) => reservation.reservation.id !== action.payload);
       })
       .addCase(removeReservation.rejected, (state) => {
         state.isLoading = false;

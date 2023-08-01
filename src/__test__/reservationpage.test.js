@@ -49,9 +49,9 @@ describe('ReservationPage', () => {
     );
   });
 
-//   it('should dispatch fetchReservations action on mount', () => {
-//     expect(store.dispatch).toHaveBeenCalledWith(fetchReservations());
-//   });
+  it('should dispatch fetchReservations action on mount', () => {
+    expect(store.dispatch).toHaveBeenCalledWith(fetchReservations());
+  });
 
   it('should display reservation list', () => {
     expect(component.getByText('Product 1')).toBeInTheDocument();
@@ -62,8 +62,8 @@ describe('ReservationPage', () => {
     expect(component.getByText('Quantity: 3')).toBeInTheDocument();
   });
 
-//   it('should dispatch removeReservation action on remove button click', () => {
-//     fireEvent.click(component.getAllByText('Remove')[0]);
-//     expect(store.dispatch).toHaveBeenCalledWith(removeReservation(1));
-//   });
+  it('should dispatch removeReservation action on remove button click', () => {
+    fireEvent.click(component.getAllByText('Remove')[0]);
+    expect(store.dispatch).toHaveBeenCalledWith(removeReservation(1));
+  });
 });

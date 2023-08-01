@@ -10,8 +10,9 @@ export default function ReservationPage() {
   const { reservations, isLoading, isError } = useSelector((store) => store.reservations);
 
   useEffect(() => {
-    dispatch(fetchReservations());
-  }, [dispatch]);
+    if (reservations.length === 0)
+   { dispatch(fetchReservations());}
+  }, [dispatch, reservations]);
 
   const handleRemoveReservation = (reservationId) => {
     dispatch(removeReservation(reservationId));
@@ -31,13 +32,15 @@ export default function ReservationPage() {
               <button type='button'>Add Reservation</button>
         </Link>
       </div>
-      {reservations.map((reservation) => (
-        <div key={reservation.id} className='reservation-list'>
+      {
+   
+      reservations.map((reservation) => (
+        <div key={reservation.reservation.id} className='reservation-list'>
           <div className='reservation-list-info'>
-            <h3>{reservation.productName}</h3>
-            <p>City: {reservation.city}</p>
-            <p>Quantity: {reservation.quantity}</p>
-            <button type='button' onClick={() => handleRemoveReservation(reservation.id)}>Remove</button>
+            <h3>{reservation.laptop.name}</h3>
+            <p>City: {reservation.laptop_reservation.city}</p>
+            <p>Quantity: {reservation.laptop_reservation.quantity}</p>
+            <button type='button' onClick={() => handleRemoveReservation(reservation.reservation.id)}>Remove</button>
           </div>
         </div>
       ))}
