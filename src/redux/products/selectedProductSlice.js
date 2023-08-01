@@ -1,8 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import demoData from "../../demo/demo.json";
-// import axios from "axios";
+import axios from "axios";
 
-const productDetailsUrl = demoData;
+const productDetailsUrl = 'http://127.0.0.1:3000/laptops/';
 
 const initialState = {
   productDetails: [],
@@ -11,11 +10,11 @@ const initialState = {
   fetched: false,
 };
 
-export const fetchProductDetails = createAsyncThunk('productDetails/fetchProductDetails', async () => {
+export const fetchProductDetails = createAsyncThunk('productDetails/fetchProductDetails', async (productId) => {
   try {
-    // const response = await axios.get(productDetailsUrl);
-    // const productDetails = await response.data;
-    return productDetailsUrl;
+    const response = await axios.get(productDetailsUrl + productId);
+    const productDetails = await response.data;
+    return productDetails;
   } catch (err) {
     return err.message;
   }
@@ -33,7 +32,8 @@ export const productDetailsSlice = createSlice({
     }))
     .addCase(fetchProductDetails.fulfilled, (state, action) => {
       const newStacks = [];
-      action.payload.map((product) => (
+      if (typeof action.payload === 'object') {
+        const product = action.payload;
         newStacks.push({
           id: product.id,
           name: product.name,
@@ -42,8 +42,20 @@ export const productDetailsSlice = createSlice({
           cpu: product.cpu,
           memory: product.memory,
           storage: product.storage,
-        })
-      ));
+        });
+      } else if (Array.isArray(action.payload)) {
+        action.payload.map((product) => (
+          newStacks.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            picture: product.picture,
+            cpu: product.cpu,
+            memory: product.memory,
+            storage: product.storage,
+          })
+        ));
+      }
       return ({
         ...state,
         isLoading: false,

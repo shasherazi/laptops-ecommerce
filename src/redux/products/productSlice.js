@@ -1,18 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import demoData from '../../demo/demo.json';
 
-const productUrl = demoData;
+const productUrl = 'http://127.0.0.1:3000/laptops';
 const initialState = {
   products: [],
+  product: [],
   isLoading: false,
   isError: false,
 };
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
   try {
-    // const response = await fetch(productUrl);
-    // const products = await response.json();
-    return productUrl;
+    const response = await fetch(productUrl);
+
+    const products = await response.json();
+    return products;
   } catch (err) {
     return err;
   }
@@ -20,10 +21,18 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ()
 
 export const addProduct = createAsyncThunk('products/addProduct', async (newProduct) => {
   try {
-    // Here, you would make a POST request to your API endpoint to add the new product
-    // For now, we'll simulate the addition of a product to the demo data
-    // Assume that `newProduct` is an object containing the details of the new product (id, name, price, picture, etc.)
-    return newProduct;
+    const response = await fetch(productUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${localStorage.getItem('Authorization')}`,
+      },
+      body: JSON.stringify({
+        laptop: newProduct,
+      }),
+    });
+    const addedProduct = await response.json();
+    return addedProduct;
   } catch (err) {
     return err;
   }
@@ -31,10 +40,28 @@ export const addProduct = createAsyncThunk('products/addProduct', async (newProd
 
 export const deleteProduct = createAsyncThunk('products/deleteProduct', async (productId) => {
   try {
-    // Here, you would make a DELETE request to your API endpoint to delete the product with the given `productId`
-    // For now, we'll simulate the deletion of a product from the demo data
-    return productId;
+    const response = await fetch(`${productUrl}/${productId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${localStorage.getItem('Authorization')}`,
+      },
+      body: JSON.stringify(),
+    });
+    const products = await response.json();
+    return products;
   } catch (err) {
+    return err;
+  }
+});
+
+export const singleProduct = createAsyncThunk('products/getPruduct', async (productId) => {
+  try {
+    const response = await fetch(`${productUrl}/${productId}`);
+    const product = await response.json();
+    return product;
+  }
+  catch (err) {
     return err;
   }
 });
@@ -46,7 +73,7 @@ export const productSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-    // fetchProducts start state
+      // fetchProducts start state
       .addCase(fetchProducts.pending, (state) => ({
         ...state,
         isLoading: true,
@@ -102,6 +129,23 @@ export const productSlice = createSlice({
         state.products = state.products.filter((product) => product.id !== action.payload);
       })
       .addCase(deleteProduct.rejected, (state) => ({
+        ...state,
+        isLoading: false,
+        isError: true,
+      }))
+
+      // getProductsingle
+      .addCase(singleProduct.pending, (state) => ({
+        ...state,
+        isLoading: true,
+        isError: false,
+      }))
+      .addCase(singleProduct.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.product = [action.payload];
+      })
+      .addCase(singleProduct.rejected, (state) => ({
         ...state,
         isLoading: false,
         isError: true,

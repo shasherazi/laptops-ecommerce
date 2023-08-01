@@ -6,7 +6,7 @@ import './reservationPage.css';
 
 export default function ReservationPage() {
   const dispatch = useDispatch();
-  const { reservations, isLoading, isError } = useSelector((store) => store.reservations);
+  const { reservations, isLoading, isError } = useSelector((state) => state.reservations);
 
   useEffect(() => {
     dispatch(fetchReservations());
@@ -18,7 +18,8 @@ export default function ReservationPage() {
 
   if (isLoading) {
     return <h3>Loading...</h3>;
-  } if (isError) {
+  }
+  if (isError) {
     return <h3>Something went wrong...</h3>;
   }
 
@@ -27,16 +28,16 @@ export default function ReservationPage() {
       <h1>Reservation List</h1>
       <div className='reservation-new'>
         <Link to="/">
-              <button type='button'>Add Reservation</button>
+          <button type='button'>Add Reservation</button>
         </Link>
       </div>
       {reservations.map((reservation) => (
         <div key={reservation.id} className='reservation-list'>
           <div className='reservation-list-info'>
-            <h3>{reservation.productName}</h3>
-            <p>City: {reservation.city}</p>
-            <p>Quantity: {reservation.quantity}</p>
-            <button type='button' onClick={() => handleRemoveReservation(reservation.id)}>Remove</button>
+            <p>ID: {reservation.id}</p>
+            <button type='button' onClick={() => handleRemoveReservation(reservation.id)}>
+              Remove
+            </button>
           </div>
         </div>
       ))}
