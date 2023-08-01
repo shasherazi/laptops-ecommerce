@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 import { fetchReservations, removeReservation } from '../redux/reservations/reservationSlice';
 import './reservationPage.css';
 
-export default function ReservationPage() {
+const ReservationPage = () => {
   const isLogin = useSelector((state) => state.user.isLogin);
   const dispatch = useDispatch();
   const { reservations, isLoading, isError } = useSelector((state) => state.reservations);
@@ -53,3 +53,5 @@ export default function ReservationPage() {
     </section>
   );
 }
+
+export default ReservationPage;
