@@ -1,4 +1,5 @@
 /*eslint-disable*/
+/* eslint-disable no-undef */
 import { render, screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';

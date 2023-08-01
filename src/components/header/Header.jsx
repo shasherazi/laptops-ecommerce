@@ -8,6 +8,7 @@ import { logout } from '../../redux/user/userSlice';
 const Header = ({ isMenuActive, setIsMenuActive }) => {
   const dispatch = useDispatch();
   const isAdmin = useSelector((state) => state.user.isAdmin);
+  const isLogin = useSelector((state) => state.user.isLogin);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -23,9 +24,7 @@ const Header = ({ isMenuActive, setIsMenuActive }) => {
       <nav>
         <ul>
           <Link to='/' className="single-nav"><li>Home</li></Link>
-          <Link to='/my-reservation' className="single-nav"><li>Reservation</li></Link>
-          {isAdmin && <Link to='/admin' className="single-nav"><li>Admin</li></Link>}
-          {!isAdmin && (
+          {!isLogin && (
             <>
               <Link to="/login" className={styles.login}>
                 login
@@ -36,9 +35,17 @@ const Header = ({ isMenuActive, setIsMenuActive }) => {
             </>
           )}
           {isAdmin && (
-            <button onClick={handleLogout} className={styles.logout}>
-              Logout
-            </button>
+            <>
+              <Link to='/admin' className="single-nav"><li>Admin</li></Link>
+            </>
+          )}
+          { isLogin && (
+            <>
+              <Link to='/my-reservation' className="single-nav"><li>My Reservation</li></Link>
+              <button onClick={handleLogout} className={styles.logout}>
+                Logout
+              </button>
+            </>
           )}
         </ul>
       </nav>

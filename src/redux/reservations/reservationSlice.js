@@ -51,6 +51,7 @@ export const addReservation = createAsyncThunk('reservations/addReservation', as
 });
 
 export const removeReservation = createAsyncThunk('reservations/removeReservation', async (reservationId) => {
+  console.log('reservationId', reservationId);
   try {
     const response = await fetch(`${reservationAllurl}/${reservationId}`, {
       method: 'DELETE',
@@ -63,16 +64,17 @@ export const removeReservation = createAsyncThunk('reservations/removeReservatio
     if (!response.ok) {
       throw new Error('Failed to remove reservation');
     }
-    return reservationId;
+
+    const reservations = await response.json();
+    return reservations;
   } catch (err) {
-    return `Failed to fetch reservations: ${err.message}`;
+    return `Failed to remove reservations: ${err.message}`;
   }
 });
 
 const reservationSlice = createSlice({
   name: 'reservations',
   initialState,
-  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchReservations.pending, (state) => {

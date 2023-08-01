@@ -7,7 +7,7 @@ import './reservationPage.css';
 
 export default function ReservationPage() {
   const dispatch = useDispatch();
-  const { reservations, isLoading, isError } = useSelector((store) => store.reservations);
+  const { reservations, isLoading, isError } = useSelector((state) => state.reservations);
 
   useEffect(() => {
     if (reservations.length === 0)
@@ -20,7 +20,8 @@ export default function ReservationPage() {
 
   if (isLoading) {
     return <h3>Loading...</h3>;
-  } if (isError) {
+  }
+  if (isError) {
     return <h3>Something went wrong...</h3>;
   }
 
@@ -29,7 +30,7 @@ export default function ReservationPage() {
       <h1>Reservation List</h1>
       <div className='reservation-new'>
         <Link to="/">
-              <button type='button'>Add Reservation</button>
+          <button type='button'>Add Reservation</button>
         </Link>
       </div>
       {
