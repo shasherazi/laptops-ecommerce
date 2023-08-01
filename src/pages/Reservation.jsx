@@ -44,7 +44,7 @@ const Reservation = () => {
 
       toast.success('Reservation added successfully!');
       setCity('');
-      setQuantity(0);
+      setQuantity(1);
       navigate('/my-reservation');
     } catch (err) {
       // Error handling
