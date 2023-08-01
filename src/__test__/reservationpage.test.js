@@ -14,6 +14,9 @@ describe('ReservationPage', () => {
 
   beforeEach(() => {
     store = mockStore({
+      user: {
+        isLogin: true,
+      },
       reservations: {
         reservations: [
           {
