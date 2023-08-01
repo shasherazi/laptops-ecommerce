@@ -6,6 +6,7 @@ import { fetchReservations, removeReservation } from '../redux/reservations/rese
 import './reservationPage.css';
 
 export default function ReservationPage() {
+  const isLogin = useSelector((state) => state.user.isLogin);
   const dispatch = useDispatch();
   const { reservations, isLoading, isError } = useSelector((state) => state.reservations);
 
@@ -33,9 +34,9 @@ export default function ReservationPage() {
           <button type='button'>Add Reservation</button>
         </Link>
       </div>
-      {
-   
-      reservations.map((reservation) => (
+    {isLogin ? (
+      <>
+      {reservations.map((reservation) => (
         <div key={reservation.reservation.id} className='reservation-list'>
           <div className='reservation-list-info'>
             <h3>{reservation.laptop.name}</h3>
@@ -45,6 +46,10 @@ export default function ReservationPage() {
           </div>
         </div>
       ))}
+      </>
+    ) : (
+      <h3>Please login to see your reservations</h3>
+    )}
     </section>
   );
 }
