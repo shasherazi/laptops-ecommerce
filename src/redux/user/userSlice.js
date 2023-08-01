@@ -5,6 +5,7 @@ const initialState = {
   email: "",
   Authorization: localStorage.getItem("Authorization") || "",
   isAdmin: false,
+  isLogin: false,
 };
 
 const usersSlice = createSlice({
@@ -30,6 +31,7 @@ const usersSlice = createSlice({
         email: "",
         Authorization: "",
         isAdmin: false,
+        isLogin: false,
       };
     },
     setToken: (state, action) => {
@@ -45,9 +47,15 @@ const usersSlice = createSlice({
         isAdmin: action.payload,
       };
     },
+    setIslogin: (state, action) => {
+      return {
+        ...state,
+        isLogin: action.payload,
+      };
+    }
   },
 });
 
-export const { setEmail, setName, logout, setToken, setIsAdmin } = usersSlice.actions;
+export const { setEmail, setName, logout, setToken, setIsAdmin, setIslogin } = usersSlice.actions;
 
 export default usersSlice.reducer;
