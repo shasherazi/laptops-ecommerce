@@ -1,16 +1,19 @@
-import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+/* eslint-disable no-unused-vars */
+import React, { useEffect } from 'react';
 import { fetchReservations, removeReservation } from '../redux/reservations/reservationSlice';
 import './reservationPage.css';
 
 export default function ReservationPage() {
+  const isLogin = useSelector((state) => state.user.isLogin);
   const dispatch = useDispatch();
   const { reservations, isLoading, isError } = useSelector((state) => state.reservations);
 
   useEffect(() => {
-    dispatch(fetchReservations());
-  }, [dispatch]);
+    if (reservations.length === 0)
+   { dispatch(fetchReservations());}
+  }, [dispatch, reservations]);
 
   const handleRemoveReservation = (reservationId) => {
     dispatch(removeReservation(reservationId));
@@ -31,16 +34,22 @@ export default function ReservationPage() {
           <button type='button'>Add Reservation</button>
         </Link>
       </div>
+    {isLogin ? (
+      <>
       {reservations.map((reservation) => (
-        <div key={reservation.id} className='reservation-list'>
+        <div key={reservation.reservation.id} className='reservation-list'>
           <div className='reservation-list-info'>
-            <p>ID: {reservation.id}</p>
-            <button type='button' onClick={() => handleRemoveReservation(reservation.id)}>
-              Remove
-            </button>
+            <h3>{reservation.laptop.name}</h3>
+            <p>City: {reservation.laptop_reservation.city}</p>
+            <p>Quantity: {reservation.laptop_reservation.quantity}</p>
+            <button type='button' onClick={() => handleRemoveReservation(reservation.reservation.id)}>Remove</button>
           </div>
         </div>
       ))}
+      </>
+    ) : (
+      <h3>Please login to see your reservations</h3>
+    )}
     </section>
   );
 }

@@ -46,10 +46,17 @@ export const deleteProduct = createAsyncThunk('products/deleteProduct', async (p
         'Content-Type': 'application/json',
         'Authorization': `${localStorage.getItem('Authorization')}`,
       },
-      body: JSON.stringify(),
     });
-    const products = await response.json();
+    if (!response.ok) {
+      throw new Error('Failed to remove reservation');
+    }
+
+    if (response.status === 204) {
+      return null;
+    } else {
+      const products = await response.json();
     return products;
+    }
   } catch (err) {
     return err;
   }
@@ -126,7 +133,8 @@ export const productSlice = createSlice({
       .addCase(deleteProduct.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = false;
-        state.products = state.products.filter((product) => product.id !== action.payload);
+        const productId = action.meta.arg;
+        state.products = state.products.filter((product) => product.id !== productId);
       })
       .addCase(deleteProduct.rejected, (state) => ({
         ...state,

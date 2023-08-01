@@ -1,12 +1,17 @@
+/*eslint-disable*/
 /* eslint-disable no-undef */
+import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import ProductList from '../pages/productList';
+import '@testing-library/jest-dom/extend-expect';
 
 const mockStore = configureStore([thunk]);
+
+jest.mock('./react-slick');
 
 describe('ProductList component', () => {
   test('should render "Loading..." when products are loading', async () => {
@@ -15,6 +20,7 @@ describe('ProductList component', () => {
         products: [],
         isLoading: true,
         isError: false,
+        isLogin: false,
       },
     });
 
@@ -35,6 +41,7 @@ describe('ProductList component', () => {
         products: [],
         isLoading: false,
         isError: true,
+        isLogin: false,
       },
     });
 
@@ -61,6 +68,7 @@ describe('ProductList component', () => {
         products,
         isLoading: false,
         isError: false,
+        isLogin: false,
       },
     });
 
