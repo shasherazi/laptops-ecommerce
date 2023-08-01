@@ -63,7 +63,7 @@ export const removeReservation = createAsyncThunk('reservations/removeReservatio
     if (!response.ok) {
       throw new Error('Failed to remove reservation');
     }
-    return reservationId;
+    return response;
   } catch (err) {
     return `Failed to remove reservations: ${err.message}`;
   }
