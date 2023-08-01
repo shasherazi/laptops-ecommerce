@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import ProductList from '../pages/productList';
+import ProductList from '../pages/ProductDetailsPage';
 
 const mockStore = configureStore([thunk]);
 
