@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../css/reservation.css';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 import { addReservation } from '../redux/reservations/reservationSlice';
 import { singleProduct  } from '../redux/products/productSlice';
 
 const Reservation = () => {
+  const navigate = useNavigate();
   const { productId } = useParams();
   const laptop_id = productId;
   const newProductId = parseInt(productId, 10);
@@ -43,7 +44,8 @@ const Reservation = () => {
 
       toast.success('Reservation added successfully!');
       setCity('');
-      setQuantity(0); 
+      setQuantity(0);
+      navigate('/my-reservation');
     } catch (err) {
       // Error handling
     }
