@@ -4,6 +4,7 @@ import userSlice from "./user/userSlice";
 import productReducer from './products/productSlice';
 import selectedProductReducer from './products/selectedProductSlice'; 
 import reservationReducer from './reservations/reservationSlice';
+import LaptopReservations from "./reservations/laptop_reserveSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     products: productReducer,
     productDetails: selectedProductReducer,
     reservations: reservationReducer,
+    laptop_reservations: LaptopReservations,
   },
 });
 
