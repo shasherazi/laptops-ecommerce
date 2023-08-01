@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './productList.css';
 import React from 'react';
+import laptopImage from '../assets/laptop.jpg';
 
 export default function HomePage(){
   const dispatch = useDispatch();
@@ -61,6 +62,19 @@ export default function HomePage(){
   return (
     <section className='list'>
       <h1>Product List</h1>
+
+      <div className='pro-list'>
+            <div className='laptop'>
+              <div className='pro-list-img'>
+              <img src={laptopImage} alt='Example Laptop' />
+              </div>
+              <div className='pro-list-info'>
+                <h3>Elite Book</h3>
+                <p>Price: $2000.45</p>
+              </div>
+            </div>
+          </div>
+
       <Slider {...sliderSettings}>
         {products.map((product) => (
           <div className='pro-list' key={product.id} role='product' onClick={() => navigate(`productdetail/${product.id}`)}>

@@ -98,3 +98,31 @@
     font-size: 20px;
   }
 }
+
+.laptop {
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #ccc;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background-color: hsl(0, 0%, 86%);
+}
+
+.laptop h2 {
+  margin-top: 0;
+}
+
+.laptop img {
+  width: 50%;
+  height: auto;
+  margin-bottom: 40px;
+  padding: 40px;
+}
+
+.laptop p {
+  margin: 5px 0;
+}
