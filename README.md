@@ -27,7 +27,7 @@
 
 - Laptop eccormerce is the project built with Rails api to connect to the frontend react and redux. it's an application that allows only admins to add and delete laptops. And allows users to read and reserve the laptops of their choice.
 
--link for backend [https://github.com/monicah79/Final-capstone-backend/pull/40]
+-link for backend [https://github.com/monicah79/Final-capstone-backend/pull/41]
 
 ## 🛠 Built With <a name="built-with"></a>
 
