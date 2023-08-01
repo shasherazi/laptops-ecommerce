@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import './productDetailsPage.css';
 import React from 'react';
 
-export default function ProductDetailsPage() {
+const ProductDetailsPage = () => {
   const isLogin = useSelector((state) => state.user.isLogin);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -57,3 +57,5 @@ export default function ProductDetailsPage() {
     </section>
   );
 }
+
+export default ProductDetailsPage;
