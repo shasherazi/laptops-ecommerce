@@ -65,7 +65,7 @@ export const removeReservation = createAsyncThunk('reservations/removeReservatio
     }
     return reservationId;
   } catch (err) {
-    return `Failed to fetch reservations: ${err.message}`;
+    return `Failed to remove reservations: ${err.message}`;
   }
 });
 
