@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+/* eslint-disable no-unused-vars */
+import React, { useEffect } from 'react';
 import { fetchReservations, removeReservation } from '../redux/reservations/reservationSlice';
 import './reservationPage.css';
 

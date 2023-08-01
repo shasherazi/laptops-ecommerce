@@ -1,4 +1,5 @@
 # laptops-ecommerce
+
 <a name="laptops-ecommerce"></a>
 
 <!-- TABLE OF CONTENTS -->
@@ -24,9 +25,10 @@
 
 # 📖 Final-capstone-backend App <a name="about-project"></a>
 
-- Laptop eccormerce is the project built with Rails api to connect to the frontend react and redux. it's an application that allows only admins to add and  delete laptops. And allows users to read and reserve the laptops of their choice.
+- Laptop eccormerce is the project built with Rails api to connect to the frontend react and redux. it's an application that allows only admins to add and delete laptops. And allows users to read and reserve the laptops of their choice.
 
--link for backend []
+-link for backend [https://github.com/monicah79/Final-capstone-backend/pull/40]
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -65,7 +67,7 @@ In order to run this project you need:
 
 - npm installed in your machine
 
-- `npm run dev` 
+- `npm run dev`
 
 ### Setup
 
@@ -75,7 +77,7 @@ Clone this repository to your desired folder:
 - cd laptops-ecommerce
 - npm install
 - npm run build
--npm run dev
+  -npm run dev
 
 ### Usage
 
