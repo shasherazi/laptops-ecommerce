@@ -48,7 +48,8 @@ export const deleteProduct = createAsyncThunk('products/deleteProduct', async (p
       },
       body: JSON.stringify(),
     });
-    return response;
+    const products = await response.json();
+    return products;
   } catch (err) {
     return err;
   }
