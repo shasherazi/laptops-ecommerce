@@ -1,20 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../css/reservation.css';
 import { useParams } from 'react-router-dom';
 import { addReservation } from '../redux/reservations/reservationSlice';
+import { singleProduct  } from '../redux/products/productSlice';
 
 const Reservation = () => {
   const { productId } = useParams();
   const laptop_id = productId;
+  const newProductId = parseInt(productId, 10);
 
   const [city, setCity] = useState('');
   const [quantity, setQuantity] = useState(0);
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.reservations.isLoading);
   const isError = useSelector((state) => state.reservations.isError);
+
+  const productSingle = useSelector((state) => state.products.product[0] || {});
+
+  useEffect(() => {
+    // Fetch product details based on productId
+    dispatch(singleProduct(newProductId))
+      .catch((error) => console.error(error));
+  }, [dispatch, newProductId]);
 
   const handleCityChange = (event) => {
     setCity(event.target.value);
@@ -41,9 +51,9 @@ const Reservation = () => {
 
   return (
     <div className='reserve-section'>
-      <h1>Reserve a Laptop Test-Ride</h1>
+      <h1>Reserve a Laptop Of {productSingle.name}</h1>
       <hr />
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, ad.</p>
+      <p>This {productSingle.name} cost ${productSingle.price} and Have memory of {productSingle.memory} also with disk of {productSingle.storage}</p>
       <div className="button-container">
         <form onSubmit={handleSubmit}>
           <input type='text' placeholder='Enter city' value={city} onChange={handleCityChange} />

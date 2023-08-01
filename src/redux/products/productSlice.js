@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 const productUrl = 'http://127.0.0.1:3000/laptops';
 const initialState = {
   products: [],
+  product: [],
   isLoading: false,
   isError: false,
 };
@@ -49,6 +50,17 @@ export const deleteProduct = createAsyncThunk('products/deleteProduct', async (p
     });
     return response;
   } catch (err) {
+    return err;
+  }
+});
+
+export const singleProduct = createAsyncThunk('products/getPruduct', async (productId) => {
+  try {
+    const response = await fetch(`${productUrl}/${productId}`);
+    const product = await response.json();
+    return product;
+  }
+  catch (err) {
     return err;
   }
 });
@@ -116,6 +128,23 @@ export const productSlice = createSlice({
         state.products = state.products.filter((product) => product.id !== action.payload);
       })
       .addCase(deleteProduct.rejected, (state) => ({
+        ...state,
+        isLoading: false,
+        isError: true,
+      }))
+
+      // getProductsingle
+      .addCase(singleProduct.pending, (state) => ({
+        ...state,
+        isLoading: true,
+        isError: false,
+      }))
+      .addCase(singleProduct.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.product = [action.payload];
+      })
+      .addCase(singleProduct.rejected, (state) => ({
         ...state,
         isLoading: false,
         isError: true,
