@@ -59,18 +59,23 @@ export const removeReservation = createAsyncThunk('reservations/removeReservatio
         'Content-Type': 'application/json',
         'Authorization': `${localStorage.getItem('Authorization')}`,
       },
-      body: JSON.stringify(),
     });
     if (!response.ok) {
       throw new Error('Failed to remove reservation');
     }
 
-    const reservations = await response.json();
-    return reservations;
+    if (response.status === 204) {
+      return null;
+    } else {
+      const reservations = await response.json();
+      return reservations;
+    }
   } catch (err) {
     return `Failed to remove reservations: ${err.message}`;
   }
 });
+
+
 
 const reservationSlice = createSlice({
   name: 'reservations',
@@ -97,6 +102,7 @@ const reservationSlice = createSlice({
       .addCase(addReservation.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = false;
+        console.log('action.payload', action.payload);
         state.reservations.push(action.payload);
       })
       .addCase(addReservation.rejected, (state) => {
@@ -110,7 +116,8 @@ const reservationSlice = createSlice({
       .addCase(removeReservation.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = false;
-        state.reservations = state.reservations.filter((reservation) => reservation.reservation.id !== action.payload);
+        const reservationId = action.meta.arg;
+        state.reservations = state.reservations.filter((reservation) => reservation.reservation.id !== reservationId);
       })
       .addCase(removeReservation.rejected, (state) => {
         state.isLoading = false;
