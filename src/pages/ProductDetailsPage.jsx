@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Link , useNavigate} from 'react-router-dom';
 import { fetchProductDetails } from '../redux/products/selectedProductSlice';
 import { useParams } from 'react-router-dom';
 import './productDetailsPage.css';
+import React from 'react';
 
 export default function ProductDetailsPage() {
   const isLogin = useSelector((state) => state.user.isLogin);
@@ -12,7 +14,7 @@ export default function ProductDetailsPage() {
   const { productId } = useParams();
   const {
     productDetails, isLoading, isError,
-  } = useSelector((store) => store.productDetails);
+  } = useSelector((state) => state.productDetails);
   useEffect(() => {
     dispatch(fetchProductDetails(productId));
   }, [dispatch, productId]);
