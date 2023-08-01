@@ -33,10 +33,11 @@ export default function ReservationPage() {
       {reservations.map((reservation) => (
         <div key={reservation.id} className='reservation-list'>
           <div className='reservation-list-info'>
-            <h3>{reservation.productName}</h3>
+            <h3>{reservation.laptop_id}</h3>
             <p>City: {reservation.city}</p>
             <p>Quantity: {reservation.quantity}</p>
-            <button type='button' onClick={() => handleRemoveReservation(reservation.id)}>Remove</button>
+            <p>Price: {reservation.reservation_id}</p>
+            <button type='button' onClick={() => handleRemoveReservation(reservation.reservation_id)}>Remove</button>
           </div>
         </div>
       ))}
