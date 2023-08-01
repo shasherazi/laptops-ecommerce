@@ -10,7 +10,7 @@ import './productList.css';
 import React from 'react';
 import laptopImage from '../assets/laptop.jpg';
 
-export default function HomePage(){
+const HomePage = () =>{
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
@@ -94,3 +94,5 @@ export default function HomePage(){
     </section>
   );
 }
+
+export default HomePage;
