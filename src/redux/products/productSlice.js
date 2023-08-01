@@ -39,8 +39,13 @@ export const addProduct = createAsyncThunk('products/addProduct', async (newProd
 
 export const deleteProduct = createAsyncThunk('products/deleteProduct', async (productId) => {
   try {
-    const response = await fetch(`${productUrl} / ${productId}`, {
+    const response = await fetch(`${productUrl}/${productId}`, {
       method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${localStorage.getItem('Authorization')}`,
+      },
+      body: JSON.stringify(),
     });
     return response;
   } catch (err) {
