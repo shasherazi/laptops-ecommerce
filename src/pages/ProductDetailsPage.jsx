@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { fetchProductDetails } from '../redux/products/selectedProductSlice';
 import { useParams } from 'react-router-dom';
 import './productDetailsPage.css';
+import { Link } from 'react-router-dom';
 
 export default function ProductDetailsPage() {
+  const isLogin = useSelector((state) => state.user.isLogin);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { productId } = useParams();
@@ -40,7 +42,10 @@ export default function ProductDetailsPage() {
               <p>storage: {product.storage} GB SSD</p>
             </div>
             <div className='pro-details-reserve'>
-              <button type='button' onClick={() => navigate(`reservation/${productId}`)}>Reserve</button>
+              {!isLogin && <Link to='/login'>Please login to reserve</Link>}
+              {isLogin && (
+                <button type='button' onClick={() => navigate(`reservation/${productId}`)}>Reserve</button>
+              )} 
             </div>
           </div>
           <div className='home-back-button'>
