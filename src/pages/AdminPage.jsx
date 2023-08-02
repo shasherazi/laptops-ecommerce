@@ -187,6 +187,7 @@ const AdminProductManagement = () => {
           </div>
           <div className='admin-page-list'>
             <h2>Product List</h2>
+            {products.length === 0 && <p>No products found.</p>}
             <ul>
               {products.filter((product) => {
                 if (searchKeyword === '') {
