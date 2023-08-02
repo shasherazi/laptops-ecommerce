@@ -55,7 +55,7 @@ const Reservation = () => {
     <div className='reserve-section'>
       <h1>Reserve a Laptop Of {productSingle.name}</h1>
       <hr />
-      <p>This {productSingle.name} cost ${productSingle.price} and Have memory of {productSingle.memory} also with disk of {productSingle.storage}</p>
+      <h3>Product Name: {productSingle.name}<br/> cost: ${productSingle.price} and Have memory of {productSingle.memory} GB RAM <br/> also with disk of {productSingle.storage} GB</h3>
       <div className="button-container">
         <form onSubmit={handleSubmit}>
           <input type='text' placeholder='Enter city' value={city} onChange={handleCityChange} />
