@@ -32,7 +32,7 @@ const ProductDetailsPage = () => {
       {productDetails.map((product) => (
         <div key={product.id} role='product' className='pro-details'>
           <div className='pro-details-img'>
-          <img src={product.picture} alt={product.name} />  
+          <img src={product.picture} alt= {`image of ${product.name}`} />  
           </div>
           <div className='pro-details-content'>
             <div className='pro-details-info'>
