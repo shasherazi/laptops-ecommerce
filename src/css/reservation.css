@@ -39,6 +39,13 @@
   z-index: 1;
 }
 
+.reserve-section h3 {
+  color: white;
+  font-weight: 500;
+  z-index: 1;
+  font-size: 20px;
+}
+
 .reserve-section p {
   color: white;
   font-weight: 500;
