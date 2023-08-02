@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-function Signup() {
+const Signup = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");

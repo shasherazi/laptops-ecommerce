@@ -9,17 +9,19 @@ import 'slick-carousel/slick/slick-theme.css';
 import './productList.css';
 import React from 'react';
 
-export default function HomePage(){
+const HomePage = () =>{
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
     products, isLoading, isError,
   } = useSelector((store) => store.products);
   const [slidesToShow, setSlidesToShow] = useState(getSlidesToShow());
+  const [productsFetched, setProductsFetched] = useState(false);
   useEffect(() => {
-    if (products.length === 0) {
+    if (!productsFetched) {
       dispatch(fetchProducts());
-    } 
+      setProductsFetched(true);
+    }
     function handleResize() {
       setSlidesToShow(getSlidesToShow());
     }
@@ -28,7 +30,7 @@ export default function HomePage(){
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [dispatch, products]);
+  }, [dispatch, productsFetched]);
 
   if (isLoading) {
     return ( 
@@ -61,6 +63,7 @@ export default function HomePage(){
   return (
     <section className='list'>
       <h1>Product List</h1>
+      {products.length === 0 && <h3>No products available</h3>}
       <Slider {...sliderSettings}>
         {products.map((product) => (
           <div className='pro-list' key={product.id} role='product' onClick={() => navigate(`productdetail/${product.id}`)}>
@@ -80,3 +83,5 @@ export default function HomePage(){
     </section>
   );
 }
+
+export default HomePage;

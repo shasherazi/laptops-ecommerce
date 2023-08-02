@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
-function Login() {
+const Login = () =>{
   const [password, setPassword] = useState("");
   const { email } = useSelector((state) => state.user);
   const dispatch = useDispatch();

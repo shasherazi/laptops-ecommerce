@@ -51,7 +51,6 @@ export const addReservation = createAsyncThunk('reservations/addReservation', as
 });
 
 export const removeReservation = createAsyncThunk('reservations/removeReservation', async (reservationId) => {
-  console.log('reservationId', reservationId);
   try {
     const response = await fetch(`${reservationAllurl}/${reservationId}`, {
       method: 'DELETE',
@@ -74,8 +73,6 @@ export const removeReservation = createAsyncThunk('reservations/removeReservatio
     return `Failed to remove reservations: ${err.message}`;
   }
 });
-
-
 
 const reservationSlice = createSlice({
   name: 'reservations',
@@ -102,7 +99,6 @@ const reservationSlice = createSlice({
       .addCase(addReservation.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = false;
-        console.log('action.payload', action.payload);
         state.reservations.push(action.payload);
       })
       .addCase(addReservation.rejected, (state) => {

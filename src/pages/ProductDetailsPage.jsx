@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import './productDetailsPage.css';
 import React from 'react';
 
-export default function ProductDetailsPage() {
+const ProductDetailsPage = () => {
   const isLogin = useSelector((state) => state.user.isLogin);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ export default function ProductDetailsPage() {
       {productDetails.map((product) => (
         <div key={product.id} role='product' className='pro-details'>
           <div className='pro-details-img'>
-          <img src={product.picture} alt={product.name} />  
+          <img src={product.picture} alt= {`image of ${product.name}`} />  
           </div>
           <div className='pro-details-content'>
             <div className='pro-details-info'>
@@ -57,3 +57,5 @@ export default function ProductDetailsPage() {
     </section>
   );
 }
+
+export default ProductDetailsPage;

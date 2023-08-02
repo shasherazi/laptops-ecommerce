@@ -12,12 +12,13 @@ import ReservationPage from "./pages/ReservationPage";
 import Reservation from "./pages/Reservation";
 import AdminPage from "./pages/AdminPage";
 
-function App() {
+const App = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuActive(!isMenuActive);
   };
+  
   return (
      <>
       <main>
@@ -41,6 +42,7 @@ function App() {
     </>
   );
 }
+
 export default App;
 
 
