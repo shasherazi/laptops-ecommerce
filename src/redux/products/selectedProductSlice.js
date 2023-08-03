@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 // const productDetailsUrl = 'http://127.0.0.1:3000/laptops/';
-const productDetailsUrl = "https://laptop-ecommerce-webservice.onrender.com/laptops";
+const productDetailsUrl = "https://laptop-ecommerce-webservice.onrender.com/laptops/";
 
 const initialState = {
   productDetails: [],

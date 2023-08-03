@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 // const reservationAllurl = 'http://127.0.0.1:3000/reservations';
-const reservationAllurl = 'https://laptop-ecommerce-webservice.onrender.com/reservations';
+const reservationAllurl = 'https://laptop-ecommerce-webservice.onrender.com/reservations/';
 const initialState = {
   reservations: [],
   isLoading: false,

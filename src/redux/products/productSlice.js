@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 // const productUrl = 'http://127.0.0.1:3000/laptops';
-const productUrl = 'https://laptop-ecommerce-webservice.onrender.com/laptops';
+const productUrl = 'https://laptop-ecommerce-webservice.onrender.com/laptops/';
 const initialState = {
   products: [],
   product: [],
