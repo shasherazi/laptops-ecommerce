@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
-const Login = () =>{
+const Login = () => {
   const [password, setPassword] = useState("");
   const { email } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const Login = () =>{
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch("http://localhost:3000/login", {
+    fetch("https://laptop-ecommerce-webservice.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

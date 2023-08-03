@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const productUrl = 'http://127.0.0.1:3000/laptops';
+// const productUrl = 'http://127.0.0.1:3000/laptops';
+const productUrl = 'https://laptop-ecommerce-webservice.onrender.com/laptops';
 const initialState = {
   products: [],
   product: [],
@@ -55,7 +56,7 @@ export const deleteProduct = createAsyncThunk('products/deleteProduct', async (p
       return null;
     } else {
       const products = await response.json();
-    return products;
+      return products;
     }
   } catch (err) {
     return err;

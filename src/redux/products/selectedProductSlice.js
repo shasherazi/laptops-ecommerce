@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const productDetailsUrl = 'http://127.0.0.1:3000/laptops/';
+// const productDetailsUrl = 'http://127.0.0.1:3000/laptops/';
+const productDetailsUrl = "https://laptop-ecommerce-webservice.onrender.com/laptops";
 
 const initialState = {
   productDetails: [],
@@ -25,26 +26,15 @@ export const productDetailsSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-    .addCase(fetchProductDetails.pending, (state) => ({
-      ...state,
-      isLoading: true,
-      isError: false,
-    }))
-    .addCase(fetchProductDetails.fulfilled, (state, action) => {
-      const newStacks = [];
-      if (typeof action.payload === 'object') {
-        const product = action.payload;
-        newStacks.push({
-          id: product.id,
-          name: product.name,
-          price: product.price,
-          picture: product.picture,
-          cpu: product.cpu,
-          memory: product.memory,
-          storage: product.storage,
-        });
-      } else if (Array.isArray(action.payload)) {
-        action.payload.map((product) => (
+      .addCase(fetchProductDetails.pending, (state) => ({
+        ...state,
+        isLoading: true,
+        isError: false,
+      }))
+      .addCase(fetchProductDetails.fulfilled, (state, action) => {
+        const newStacks = [];
+        if (typeof action.payload === 'object') {
+          const product = action.payload;
           newStacks.push({
             id: product.id,
             name: product.name,
@@ -53,22 +43,33 @@ export const productDetailsSlice = createSlice({
             cpu: product.cpu,
             memory: product.memory,
             storage: product.storage,
-          })
-        ));
-      }
-      return ({
+          });
+        } else if (Array.isArray(action.payload)) {
+          action.payload.map((product) => (
+            newStacks.push({
+              id: product.id,
+              name: product.name,
+              price: product.price,
+              picture: product.picture,
+              cpu: product.cpu,
+              memory: product.memory,
+              storage: product.storage,
+            })
+          ));
+        }
+        return ({
+          ...state,
+          isLoading: false,
+          isError: false,
+          fetched: true,
+          productDetails: newStacks,
+        });
+      })
+      .addCase(fetchProductDetails.rejected, (state) => ({
         ...state,
         isLoading: false,
-        isError: false,
-        fetched: true,
-        productDetails: newStacks,
-      });
-    })
-    .addCase(fetchProductDetails.rejected, (state) => ({
-      ...state,
-      isLoading: false,
-      isError: true,
-    }));
+        isError: true,
+      }));
   },
 });
 
