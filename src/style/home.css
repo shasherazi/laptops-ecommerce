@@ -123,9 +123,8 @@ header nav ul li:hover .single-nav {
   }
 
   .main-content {
-    width: calc(100vw - 150px);
+    width: 70%;
     position: absolute;
-    left: 150px;
-    padding-top: 0;
+    left: 20%;
   }
 }
