@@ -1,31 +1,16 @@
 .reserve-section {
   height: 100%;
   width: 100%;
-  background-image: url('../assets/lapt.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
   align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.reserve-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #0c0c0c;
-  opacity: 0.85;
+  color: hsl(0, 0%, 20%);
+  margin-top: 120px;
 }
 
 .reserve-section h1 {
-  color: white;
   font-weight: 900;
   z-index: 1;
   font-size: 25px;
@@ -40,14 +25,12 @@
 }
 
 .reserve-section h3 {
-  color: white;
   font-weight: 500;
   z-index: 1;
   font-size: 20px;
 }
 
 .reserve-section p {
-  color: white;
   font-weight: 500;
   z-index: 1;
   font-size: 15px;
@@ -58,17 +41,22 @@
   display: flex;
   gap: 10px;
   z-index: 1;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .button-container form {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  height: 100%;
+  width: 100%;
 }
 
 .button-container a {
   text-decoration: none;
-  background-color: white;
   font-weight: 500;
   padding: 10px 30px;
   color: #97bf0f;
@@ -78,12 +66,10 @@
 
 .button-container a:hover {
   background-color: #7aae0a;
-  color: white;
 }
 
 .button-container select {
   text-decoration: none;
-  background-color: white;
   font-weight: 500;
   padding: 10px 20px;
   color: #97bf0f;
@@ -96,36 +82,49 @@
 
 .button-container input {
   text-decoration: none;
-  background-color: white;
   font-weight: 500;
+  height: 55px;
   padding: 10px 20px;
   color: #97bf0f;
   transition: all 0.3s ease-in-out;
   border-radius: 20px;
-  border: none;
+  border: 3px solid hsl(0, 1%, 22%);
   outline: none;
   cursor: pointer;
+  background-color: hsl(0, 0%, 20%);
+  margin: 10px 0;
 }
 
 .button-container input::placeholder {
   /* color: gray; */
   font-weight: 500;
+  font-size: 18px;
+}
+
+.button-container input:hover,
+.button-container input:focus {
+  background-color: hsl(0, 1%, 22%);
+  color: hsl(79, 90%, 47%);
+  border: 3px solid hsl(79, 90%, 47%);
+  box-shadow: 5px 5px 10px 10px hsla(0, 0%, 20%, 0.145);
 }
 
 .button-container button {
   text-decoration: none;
   background-color: #7aae0a;
   font-weight: 500;
+  height: 75px;
   padding: 10px 20px;
-  color: white;
   transition: all 0.3s ease-in-out;
   border-radius: 20px;
   border: none;
   outline: none;
   cursor: pointer;
+  color: hsl(0, 0%, 100%);
 }
 
-.button-container button:hover {
+.button-container button:hover,
+.button-container button:focus {
   background-color: #97bf0f;
 }
 
@@ -133,7 +132,6 @@
   position: absolute;
   right: 5px;
   top: 5px;
-  background-color: white;
   border-radius: 35%;
   padding: 5px 8px;
   height: 20px;
@@ -155,5 +153,7 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
   }
 }
