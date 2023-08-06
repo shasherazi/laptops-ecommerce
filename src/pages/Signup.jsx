@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 
 const Signup = () => {
   const [password, setPassword] = useState("");
-  const [adpassword, setadPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const { name, email } = useSelector((state) => state.user);
@@ -17,9 +16,6 @@ const Signup = () => {
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-  };
-  const handleadPasswordChange = (event) => {
-    setadPassword(event.target.value);
   };
 
   const handleNameChange = (event) => {
@@ -50,7 +46,7 @@ const Signup = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user: { name: name, email: email, password: password , admin_password: adpassword },
+        user: { name: name, email: email, password: password },
       }),
     })
       .then(async (response) => {
@@ -106,16 +102,6 @@ const Signup = () => {
           value={passwordConfirm}
           onChange={handlePasswordConfirmChange}
         />
-        <input
-          type="password"
-          id="adpassword"
-          placeholder="Admin Password"
-          required
-          minLength={6}
-          value={adpassword}
-          onChange={handleadPasswordChange}
-        />
-        
         <button type="submit">Sign Up</button>
         {errorMessage && <p>{errorMessage}</p>}
       </form>
