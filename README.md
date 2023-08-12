@@ -109,7 +109,7 @@ To run tests, run the following command accordingly:
 
 - GitHub: [@imranhossainemi](https://github.com/imranhossainemi)
 
-👤 **Anthony Martin**
+👤 **Syed Hassan Askri**
 
 - GitHub: [shasherazi](https://github.com/shasherazi)
 - Twitter: [shasherazi](https://twitter.com/shasherazi)
